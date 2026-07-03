@@ -1,0 +1,390 @@
+/* ==========================================================================
+   Responsive Styles
+   Keep breakpoint-specific layout changes here for easy maintenance.
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .nav-menu {
+    gap: 13px;
+  }
+
+  .nav-menu a {
+    font-size: 0.7rem;
+  }
+
+  .feature-grid,
+  .discipline-grid,
+  .case-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .artwork-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    background: rgba(247, 242, 233, 0.96);
+    box-shadow: 0 1px 0 var(--line);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .hero-content,
+  .split-layout,
+  .two-column,
+  .contact-layout,
+  .product-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 130px;
+  }
+
+  .hero-content {
+    min-height: auto;
+  }
+
+  .placeholder-art.large,
+  .device-placeholder {
+    min-height: 420px;
+  }
+
+  .hero-logo-card {
+    height: 104px;
+    width: 104px;
+  }
+
+  .section {
+    padding: 78px 0;
+  }
+
+  .page-hero {
+    padding-top: 140px;
+  }
+
+  .three-column,
+  .masonry-grid,
+  .editorial-gallery,
+  .media-grid,
+  .behind-grid,
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .callout {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 620px) {
+  .shell {
+    width: min(100% - 28px, var(--max));
+  }
+
+  h1 {
+    font-size: clamp(3rem, 16vw, 4.5rem);
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .feature-grid,
+  .discipline-grid,
+  .artwork-grid,
+  .three-column,
+  .masonry-grid,
+  .editorial-gallery,
+  .media-grid,
+  .behind-grid,
+  .footer-grid,
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-placeholder.wide {
+    grid-column: auto;
+  }
+
+  .hero-artwork-frame figcaption {
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+  }
+
+  .button-row,
+  .filter-bar,
+  .category-strip {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btn,
+  .filter-btn {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-details,
+  .contact-form,
+  .callout {
+    padding: 22px;
+  }
+}
+
+/* Dark redesign responsive refinements. */
+@media (max-width: 1080px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    background: rgba(32, 33, 38, 0.96);
+  }
+
+  .nav-menu {
+    background: #25272d;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero {
+    padding-top: 112px;
+  }
+}
+
+@media (max-width: 620px) {
+  .brand-text {
+    display: inline;
+    font-size: 0.92rem;
+  }
+
+  .brand-text::before,
+  .footer-brand span:last-child::before {
+    height: 26px;
+    margin-right: 8px;
+    transform: translateY(6px);
+    width: 26px;
+  }
+
+  h1 {
+    font-size: clamp(3.2rem, 14vw, 4.45rem);
+  }
+
+  .hero {
+    padding-top: 150px;
+  }
+
+  .hero-content {
+    gap: 42px;
+  }
+
+  .hero-visual {
+    min-height: 430px;
+  }
+
+  .hero-ring {
+    border-width: 58px;
+    width: min(92%, 420px);
+  }
+
+  .hero-media-placeholder {
+    height: 320px;
+    width: 48%;
+  }
+
+  .skill-badge {
+    font-size: 1.45rem;
+    height: 66px;
+    width: 66px;
+  }
+
+  .badge-top-left { left: 2%; top: 20%; }
+  .badge-top-right { right: 3%; top: 20%; }
+  .badge-bottom-left { bottom: 22%; left: 0; }
+  .badge-bottom-right { bottom: 22%; right: 0; }
+}
+
+/* Minimal portfolio responsive layer. */
+@media (max-width: 1120px) {
+  .nav-menu {
+    gap: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    max-width: 760px;
+  }
+
+  .feature-grid .project-card,
+  .feature-grid .project-card:first-child,
+  .feature-grid .project-card:nth-child(2) {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    background: rgba(247, 245, 239, 0.96);
+  }
+
+  .nav-menu {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-menu a {
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-heading .eyebrow {
+    margin-top: 0;
+  }
+
+  .section-heading h2,
+  .section-heading p:not(.eyebrow) {
+    grid-column: auto;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .hero-services {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-services li {
+    min-height: 56px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .shell {
+    width: min(100% - 28px, var(--max));
+  }
+
+  h1 {
+    font-size: clamp(3.05rem, 15vw, 4.7rem);
+    line-height: 0.96;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 10vw, 3.35rem);
+  }
+
+  .brand-text {
+    display: inline;
+    font-size: 0.92rem;
+  }
+
+  .hero-content {
+    gap: 28px;
+  }
+
+  .hero-media-placeholder {
+    height: 320px;
+  }
+
+  .practice-list div {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .feature-grid,
+  .discipline-grid,
+  .artwork-grid,
+  .three-column,
+  .masonry-grid,
+  .editorial-gallery,
+  .media-grid,
+  .behind-grid,
+  .footer-grid,
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid .project-card,
+  .feature-grid .project-card:first-child,
+  .feature-grid .project-card:nth-child(2) {
+    grid-column: auto;
+  }
+
+  .button-row,
+  .filter-bar,
+  .category-strip {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .btn,
+  .filter-btn {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

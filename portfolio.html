@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of visual art, cinematography, creative direction, AR installations, portraits and editorial work by Thomas Ogun Visuals.">
+  <meta property="og:title" content="Portfolio | Thomas Ogun Visuals">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <title>Portfolio | Thomas Ogun Visuals</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header solid" data-header>
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-text">Thomas Ogun Visuals</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" data-nav-toggle><span></span><span></span><span></span></button>
+      <ul class="nav-menu" id="primary-menu" data-nav-menu>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html" aria-current="page">Work</a></li><li><a href="exhibition.html">Exhibition</a></li><li><a href="auramanager.html">Aura Manager</a></li><li><a href="professional-practice.html">Practice</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero shell">
+      <p class="eyebrow reveal">Selected Portfolio</p>
+      <h1 class="reveal delay-1">Work Across Image, Installation and Technology</h1>
+    </section>
+    <section class="section">
+      <div class="shell">
+        <!-- Filter buttons use data-filter and are wired in js/main.js. -->
+        <div class="filter-bar reveal" aria-label="Portfolio filters">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="visual-art">Visual Art</button>
+          <button class="filter-btn" type="button" data-filter="cinematography">Cinematography</button>
+          <button class="filter-btn" type="button" data-filter="creative-direction">Creative Direction</button>
+          <button class="filter-btn" type="button" data-filter="ar">AR Installations</button>
+          <button class="filter-btn" type="button" data-filter="portraits">Portraits</button>
+          <button class="filter-btn" type="button" data-filter="editorial">Editorial</button>
+        </div>
+        <div class="masonry-grid">
+          <article class="masonry-item reveal" data-category="visual-art ar"><div class="image-placeholder tall"></div><h2>The Gods Eyes</h2><p>Visual Art / AR</p></article>
+          <article class="masonry-item reveal delay-1" data-category="ar visual-art"><div class="image-placeholder"></div><h2>The Ancestral Being</h2><p>AR Installation</p></article>
+          <article class="masonry-item reveal delay-2" data-category="cinematography portraits"><div class="image-placeholder tall"></div><h2>Quiet Power</h2><p>Portrait Film</p></article>
+          <article class="masonry-item reveal" data-category="creative-direction editorial"><div class="image-placeholder"></div><h2>Editorial Identity System</h2><p>Creative Direction</p></article>
+          <article class="masonry-item reveal delay-1" data-category="visual-art"><div class="image-placeholder"></div><h2>Ancestral Field</h2><p>Visual Art</p></article>
+          <article class="masonry-item reveal delay-2" data-category="cinematography editorial"><div class="image-placeholder tall"></div><h2>Studio Fragments</h2><p>Editorial Moving Image</p></article>
+          <article class="masonry-item reveal" data-category="creative-direction"><div class="image-placeholder"></div><h2>Album Campaign Direction</h2><p>Creative Direction</p></article>
+          <article class="masonry-item reveal delay-1" data-category="ar visual-art"><div class="image-placeholder"></div><h2>Vuforia Image Target Study</h2><p>AR Artwork</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>Thomas Ogun Visuals</span></a><p>Interdisciplinary visual artist and creative technologist working across art, AR, cinematography and direction.</p></div>
+      <div><h2>Navigate</h2><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="exhibition.html">Exhibition</a></li><li><a href="professional-practice.html">Professional Practice</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h2>Social</h2><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Behance</a></li><li><a href="#">GitHub</a></li></ul></div>
+      <form class="newsletter" action="#" method="post"><h2>Newsletter</h2><label for="newsletter-email">Email address</label><input id="newsletter-email" type="email" placeholder="studio@example.com"><button class="btn btn-primary" type="submit">Join List</button></form>
+    </div>
+    <p class="copyright">&copy; 2026 Thomas Ogun Visuals. All Rights Reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
