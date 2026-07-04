@@ -1674,6 +1674,12 @@ h3 {
   color: var(--white);
 }
 
+.btn,
+.filter-btn,
+button {
+  border-radius: 8px;
+}
+
 .text-link {
   color: var(--blue);
   font-weight: 800;
