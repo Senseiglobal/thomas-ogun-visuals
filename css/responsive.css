@@ -539,6 +539,9 @@ h3 {
 
   .nav-toggle {
     align-items: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0;
     cursor: pointer;
     display: inline-flex;
     flex-direction: column;
@@ -550,7 +553,33 @@ h3 {
 
   .nav-toggle span {
     margin: 3px 0;
+    transition: background 180ms ease, transform 180ms ease;
     width: 24px;
+  }
+
+  .nav-toggle:hover,
+  .nav-toggle:focus-visible,
+  .nav-toggle[aria-expanded="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .nav-toggle:hover span,
+  .nav-toggle:focus-visible span,
+  .nav-toggle[aria-expanded="true"] span {
+    background: var(--gold);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    transform: scaleX(0);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .nav-menu {
