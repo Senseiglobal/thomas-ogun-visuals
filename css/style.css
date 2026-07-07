@@ -3131,3 +3131,24 @@ label {
   padding: 24px;
   text-align: center;
 }
+
+/* Aura Manager hero: keep the image as a compact right-side visual. */
+.product-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+}
+
+.product-hero h1 {
+  font-size: clamp(3.25rem, 5.4vw, 5.9rem);
+  max-width: 12ch;
+}
+
+.aura-hero-visual {
+  align-self: center;
+  justify-self: end;
+  max-width: 420px;
+  width: 100%;
+}
+
+.aura-hero-visual img {
+  display: block;
+}
