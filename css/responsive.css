@@ -993,6 +993,11 @@ h3 {
     font-size: 2.35rem;
   }
 
+  .page-hero h1 {
+    font-size: 2.12rem;
+    line-height: 1.04;
+  }
+
   .product-hero h1 {
     font-size: clamp(2.8rem, 16vw, 3.65rem);
     max-width: 8.8ch;
@@ -1082,6 +1087,10 @@ h3 {
   .hero-copy h1,
   .page-hero h1 {
     font-size: 2.12rem;
+  }
+
+  .page-hero h1 {
+    font-size: 1.98rem;
   }
 
   .product-hero h1 {

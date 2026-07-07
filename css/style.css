@@ -3107,6 +3107,12 @@ label {
   color: var(--white);
 }
 
+.page-hero h1 {
+  font-size: clamp(2.85rem, 5.8vw, 5.9rem);
+  line-height: 1;
+  max-width: 940px;
+}
+
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
