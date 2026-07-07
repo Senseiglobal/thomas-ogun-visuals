@@ -3152,3 +3152,36 @@ label {
 .aura-product-hero .aura-hero-visual img {
   display: block;
 }
+
+/* Aura Manager zigzag rows: alternate media and text without clutter. */
+.aura-zigzag-section {
+  border-top: 1px solid var(--line);
+}
+
+.aura-zigzag-row {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 5vw, 70px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+}
+
+.aura-zigzag-row .showcase-video {
+  justify-self: start;
+  max-width: 720px;
+  width: 100%;
+}
+
+.aura-zigzag-row .text-stack {
+  max-width: 520px;
+}
+
+.aura-guide-player {
+  display: grid;
+  gap: 24px;
+  max-width: 760px;
+  width: 100%;
+}
+
+.aura-guide-player .text-stack {
+  max-width: 660px;
+}

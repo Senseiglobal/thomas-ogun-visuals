@@ -1142,3 +1142,26 @@ h3 {
     margin-top: 8px;
   }
 }
+
+@media (max-width: 760px) {
+  .aura-zigzag-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aura-product-hero .aura-hero-visual,
+  .aura-guide-player,
+  .aura-zigzag-row .showcase-video,
+  .aura-zigzag-row .text-stack {
+    justify-self: center;
+    margin-inline: auto;
+    max-width: none;
+    width: 100%;
+  }
+
+  .aura-product-hero .aura-hero-visual img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+}
