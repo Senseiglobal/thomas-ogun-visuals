@@ -888,7 +888,8 @@ h3 {
   }
 
   .catalogue-cover-copy h1 {
-    font-size: clamp(3rem, 15vw, 4.8rem);
+    font-size: clamp(2.45rem, 12vw, 3.75rem);
+    line-height: 1;
   }
 
   .catalogue-section .section-heading h2 {
@@ -994,8 +995,8 @@ h3 {
   }
 
   .page-hero h1 {
-    font-size: 2.12rem;
-    line-height: 1.04;
+    font-size: 1.92rem;
+    line-height: 1.08;
   }
 
   .product-hero h1 {
@@ -1090,7 +1091,7 @@ h3 {
   }
 
   .page-hero h1 {
-    font-size: 1.98rem;
+    font-size: 1.78rem;
   }
 
   .product-hero h1 {
@@ -1110,36 +1111,65 @@ h3 {
   }
 }
 
-/* Homepage Main Areas: mobile cards read as a clear list, not empty square blocks. */
+/* Homepage Main Areas: card layout stays clean on mobile and tablet. */
+@media (max-width: 980px) {
+  .home-main-areas .main-area-grid,
+  .exhibition-artwork-section .exhibition-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
   .home-main-areas .section-heading {
     margin-bottom: 22px;
   }
 
-  .main-area-grid {
-    gap: 12px;
+  .home-main-areas .main-area-grid {
+    gap: 14px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .main-area-grid .project-card {
+  .home-main-areas .main-area-grid .project-card,
+  .home-main-areas .main-area-grid .project-card:first-child,
+  .home-main-areas .main-area-grid .project-card:nth-child(2),
+  .home-main-areas .main-area-grid .project-card:nth-child(3),
+  .home-main-areas .main-area-grid .project-card:nth-child(4) {
+    grid-column: auto;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .home-main-areas .main-area-grid .image-placeholder,
+  .home-main-areas .main-area-grid .image-placeholder.tall {
+    aspect-ratio: 4 / 3;
     display: block;
     min-height: 0;
-    padding: 18px;
   }
 
-  .main-area-grid .image-placeholder {
-    display: none;
-  }
-
-  .main-area-grid .project-card h3 {
+  .home-main-areas .main-area-grid .project-card h3 {
     font-size: 1.1rem;
     line-height: 1.15;
-    margin-top: 0;
+    margin-top: 16px;
   }
 
-  .main-area-grid .project-card p {
+  .home-main-areas .main-area-grid .project-card p {
     font-size: 0.94rem;
     line-height: 1.55;
     margin-top: 8px;
+  }
+
+  .exhibition-artwork-section .exhibition-card-grid {
+    gap: 14px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .exhibition-artwork-section .artwork-card {
+    padding: 16px;
+  }
+
+  .exhibition-artwork-section .artwork-image {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 16px;
   }
 }
 
@@ -1163,5 +1193,65 @@ h3 {
     object-fit: cover;
     object-position: center;
     width: 100%;
+  }
+}
+
+/* Mobile header: keep the logo compact and place search before the menu button. */
+@media (max-width: 960px) {
+  .brand {
+    order: 1;
+  }
+
+  .brand-mark {
+    flex-basis: 40px;
+    height: 44px;
+    width: 40px;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+    order: 2;
+  }
+
+  .nav-toggle {
+    margin-left: 0;
+    order: 3;
+  }
+
+  .nav-menu {
+    order: 4;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-text {
+    display: inline-block;
+    font-size: 0.95rem;
+    max-width: 54vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .theme-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-mark {
+    flex-basis: 36px;
+    height: 40px;
+    width: 36px;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .icon-button,
+  .nav-toggle {
+    height: 42px;
+    width: 42px;
   }
 }

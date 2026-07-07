@@ -2152,7 +2152,7 @@ textarea {
     linear-gradient(90deg, rgba(247, 242, 233, 0.96), rgba(247, 242, 233, 0.64)),
     var(--bg);
   border-bottom: 1px solid var(--line);
-  padding: clamp(136px, 13vw, 190px) 0 clamp(60px, 8vw, 110px);
+  padding: clamp(118px, 11vw, 162px) 0 clamp(58px, 7vw, 96px);
 }
 
 .catalogue-hero-grid {
@@ -2163,8 +2163,8 @@ textarea {
 }
 
 .catalogue-cover-copy h1 {
-  font-size: clamp(3.6rem, 8vw, 8.6rem);
-  line-height: 0.92;
+  font-size: clamp(3rem, 6.3vw, 6.7rem);
+  line-height: 0.96;
   max-width: 920px;
 }
 
@@ -2261,6 +2261,13 @@ textarea {
   font-weight: 700;
   line-height: 1.48;
   margin: 0;
+}
+
+.catalogue-section,
+.catalogue-chapter,
+.catalogue-detail,
+.ar-doc-card {
+  scroll-margin-top: 154px;
 }
 
 .catalogue-toc {
@@ -3110,9 +3117,9 @@ label {
 }
 
 .page-hero h1 {
-  font-size: clamp(2.85rem, 5.8vw, 5.9rem);
-  line-height: 1;
-  max-width: 940px;
+  font-size: clamp(2.35rem, 4.45vw, 4.65rem);
+  line-height: 1.06;
+  max-width: 900px;
 }
 
 .copyright {
@@ -3130,6 +3137,75 @@ label {
   line-height: 1.35;
   padding: 24px;
   text-align: center;
+}
+
+/* About page portrait: real image, square-led and responsive. */
+.about-portrait {
+  aspect-ratio: 1 / 1.04;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.about-portrait img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* Exhibition AR process cards: three balanced cards above the upload grid. */
+.exhibition-tech-grid {
+  align-items: stretch;
+  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: clamp(36px, 5vw, 68px);
+}
+
+.exhibition-tech-grid .info-block {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 176px;
+}
+
+.exhibition-tech-grid .info-block h3 {
+  margin-bottom: 16px;
+}
+
+.exhibition-tech-grid + .media-grid {
+  margin-top: 0;
+}
+
+.artwork-spec-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 30px;
+}
+
+.artwork-spec-grid .info-block {
+  border-radius: 10px;
+  min-height: 150px;
+}
+
+@media (max-width: 900px) {
+  .exhibition-tech-grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 34px;
+  }
+
+  .exhibition-tech-grid .info-block {
+    min-height: 0;
+  }
+
+  .artwork-spec-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* Aura Manager hero: keep the image as a compact right-side visual. */
@@ -3184,4 +3260,354 @@ label {
 
 .aura-guide-player .text-stack {
   max-width: 660px;
+}
+
+/* Homepage Main Areas: product-style card layout with stable image blocks. */
+.home-main-areas .main-area-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-main-areas .main-area-grid .project-card,
+.home-main-areas .main-area-grid .project-card:first-child,
+.home-main-areas .main-area-grid .project-card:nth-child(2),
+.home-main-areas .main-area-grid .project-card:nth-child(3),
+.home-main-areas .main-area-grid .project-card:nth-child(4) {
+  display: flex;
+  flex-direction: column;
+  grid-column: auto;
+  min-height: 0;
+}
+
+.home-main-areas .main-area-grid .image-placeholder,
+.home-main-areas .main-area-grid .image-placeholder.tall {
+  aspect-ratio: 4 / 3;
+  display: block;
+  flex: 0 0 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+.home-main-areas .main-area-grid .project-card h3 {
+  font-size: clamp(1.08rem, 1.6vw, 1.35rem);
+  line-height: 1.15;
+}
+
+/* Identity & Spirituality page: clean image-first exhibition card grid. */
+.exhibition-artwork-section .exhibition-card-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.exhibition-artwork-section .artwork-card {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 14px;
+}
+
+.exhibition-artwork-section .artwork-image {
+  aspect-ratio: 1 / 1;
+  border: 0;
+  flex: 0 0 auto;
+  height: auto;
+  margin-bottom: 18px;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.exhibition-artwork-section .artwork-image img {
+  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.exhibition-artwork-section .artwork-card h3 {
+  font-size: clamp(1.08rem, 1.5vw, 1.32rem);
+  line-height: 1.12;
+  margin-top: 0;
+}
+
+.exhibition-artwork-section .artwork-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.exhibition-artwork-section .artwork-card .text-link {
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+/* Theme and logo system: compact header mark, readable light/dark palettes. */
+:root {
+  --logo-image: url("../assets/logo/thomas-ogun-face-mark.png");
+  --blue: #d95f18;
+  --sunset: #d95f18;
+  --sunset-soft: #ff9a4a;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111111;
+  --bg-soft: #181715;
+  --gold: #d9ad60;
+  --gold-dark: #f0ca7a;
+  --ink: #fff8eb;
+  --line: rgba(255, 248, 235, 0.16);
+  --muted: #d4cabd;
+  --night: #070707;
+  --shadow: 0 26px 70px rgba(0, 0, 0, 0.36);
+  --white: #1b1a18;
+  --logo-image: url("../assets/logo/thomas-ogun-face-mark.png");
+  --blue: #ff9a4a;
+  --sunset: #ff9a4a;
+  --sunset-soft: #ffd0ad;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .site-header.scrolled,
+html[data-theme="dark"] .site-header.solid {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .site-header.scrolled,
+html[data-theme="dark"] .site-header.solid {
+  box-shadow: 0 1px 0 var(--line);
+}
+
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .catalogue-nav,
+html[data-theme="dark"] .home-main-areas,
+html[data-theme="dark"] .exhibition-artwork-section {
+  background: var(--bg-soft);
+}
+
+html[data-theme="dark"] .catalogue-hero {
+  background:
+    linear-gradient(90deg, rgba(17, 17, 17, 0.98) 0%, rgba(17, 17, 17, 0.88) 58%, rgba(217, 95, 24, 0.2) 100%),
+    var(--bg);
+}
+
+html[data-theme="dark"] .catalogue-cover-copy h1,
+html[data-theme="dark"] .catalogue-subtitle,
+html[data-theme="dark"] .catalogue-artist {
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .catalogue-toc {
+  background: rgba(17, 17, 17, 0.94);
+}
+
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .discipline-card,
+html[data-theme="dark"] .artwork-card,
+html[data-theme="dark"] .info-block,
+html[data-theme="dark"] .case-card,
+html[data-theme="dark"] .contact-details,
+html[data-theme="dark"] .contact-form,
+html[data-theme="dark"] .callout,
+html[data-theme="dark"] .search-card,
+html[data-theme="dark"] .concierge-card,
+html[data-theme="dark"] .catalogue-chapter,
+html[data-theme="dark"] .catalogue-detail,
+html[data-theme="dark"] .ar-doc-card,
+html[data-theme="dark"] .essay-placeholder,
+html[data-theme="dark"] .process-placeholder,
+html[data-theme="dark"] .checklist-table,
+html[data-theme="dark"] .founder-card {
+  background: var(--white);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+html[data-theme="dark"] .image-placeholder,
+html[data-theme="dark"] .media-placeholder,
+html[data-theme="dark"] .catalogue-image-placeholder,
+html[data-theme="dark"] .catalogue-detail-image,
+html[data-theme="dark"] .ar-doc-image,
+html[data-theme="dark"] .aura-hero-visual {
+  background: #11100e;
+  border-color: rgba(255, 248, 235, 0.18);
+}
+
+html[data-theme="dark"] .site-footer {
+  background: #070707;
+  color: #fff8eb;
+}
+
+html[data-theme="dark"] .site-footer h2,
+html[data-theme="dark"] .site-footer .footer-brand {
+  color: #fff8eb;
+}
+
+html[data-theme="dark"] .site-footer p,
+html[data-theme="dark"] .site-footer a {
+  color: rgba(255, 248, 235, 0.72);
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background: #111111;
+}
+
+.brand {
+  gap: 11px;
+  min-height: 44px;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.brand-mark {
+  display: none;
+  flex: 0 0 0;
+  height: 0;
+  overflow: visible;
+  width: 0;
+}
+
+html[data-theme="dark"] .brand-mark {
+  filter:
+    drop-shadow(0 0 1px rgba(255, 248, 235, 0.95))
+    drop-shadow(0 0 8px rgba(255, 248, 235, 0.26));
+}
+
+.brand-text {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  max-width: none;
+  text-transform: none;
+}
+
+.theme-toggle .theme-icon-moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-icon-sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-icon-moon {
+  display: block;
+}
+
+/* Homepage portrait hero: full-screen image layout with readable overlay text. */
+.home-hero {
+  align-items: stretch;
+  background: #111111;
+  color: #ffffff;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 0;
+}
+
+.home-hero::after {
+  background:
+    linear-gradient(90deg, rgba(6, 6, 6, 0.82) 0%, rgba(6, 6, 6, 0.58) 38%, rgba(6, 6, 6, 0.18) 72%, rgba(6, 6, 6, 0.38) 100%),
+    linear-gradient(0deg, rgba(6, 6, 6, 0.44), rgba(6, 6, 6, 0.08) 44%, rgba(6, 6, 6, 0.36));
+  bottom: auto;
+  content: "";
+  height: auto;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.hero-photo-bg {
+  inset: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+.hero-photo-bg img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.home-hero .hero-content {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 580px);
+  justify-content: start;
+  min-height: 100svh;
+  padding-bottom: clamp(64px, 9vw, 104px);
+  padding-top: clamp(96px, 12vw, 136px);
+  position: relative;
+  z-index: 2;
+}
+
+.home-hero .hero-copy {
+  color: #ffffff;
+  max-width: 580px;
+  padding-top: 0;
+}
+
+.home-hero .hero-copy h1 {
+  color: #ffffff;
+  font-size: clamp(3.4rem, 8vw, 7.4rem);
+  line-height: 0.92;
+  max-width: 9.5ch;
+  text-shadow: 0 16px 50px rgba(0, 0, 0, 0.36);
+}
+
+.home-hero .line-eyebrow,
+.home-hero .eyebrow {
+  color: var(--sunset-soft);
+}
+
+.home-hero .line-eyebrow::before {
+  background: var(--sunset-soft);
+}
+
+.home-hero .hero-subtitle {
+  color: #ffffff;
+  max-width: 540px;
+}
+
+.home-hero .hero-intro {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 460px;
+}
+
+.home-hero .btn-primary {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #111111;
+}
+
+.home-hero .btn-secondary {
+  background: rgba(17, 17, 17, 0.2);
+  border-color: rgba(255, 255, 255, 0.68);
+  color: #ffffff;
+}
+
+.home-hero .btn-primary:hover,
+.home-hero .btn-secondary:hover {
+  background: var(--sunset-soft);
+  border-color: var(--sunset-soft);
+  color: #111111;
+}
+
+.home-hero .scroll-indicator {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  z-index: 3;
 }

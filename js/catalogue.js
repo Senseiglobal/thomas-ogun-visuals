@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const app = document.querySelector("[data-catalogue-app]");
   if (!app) return;
 
+  const physicalPresentation = "12 x 12 inches, matte frame";
+  const digitalPaintingSpecs = "6000 x 6000 pixels, 300 dpi, 24-bit sRGB";
+
   const catalogueArtworks = [
     {
       number: "01",
@@ -299,6 +302,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <dl>
             <div><dt>Format</dt><dd>Eight physical works and two AR installations</dd></div>
             <div><dt>Series</dt><dd>Identity and Spirituality</dd></div>
+            <div><dt>Physical</dt><dd>${html(physicalPresentation)}</dd></div>
+            <div><dt>Digital</dt><dd>${html(digitalPaintingSpecs)}</dd></div>
             <div><dt>Year</dt><dd>2026</dd></div>
           </dl>
         </div>
@@ -416,6 +421,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <div><dt>No.</dt><dd>${html(artwork.number)}</dd></div>
           <div><dt>Class</dt><dd>${html(artwork.classification)}</dd></div>
           <div><dt>Medium</dt><dd>${html(artwork.medium)}</dd></div>
+          <div><dt>Physical</dt><dd>${html(physicalPresentation)}</dd></div>
+          <div><dt>Digital</dt><dd>${html(digitalPaintingSpecs)}</dd></div>
           <div><dt>Year</dt><dd>${html(artwork.year)}</dd></div>
           ${artwork.technology ? `<div><dt>Tech</dt><dd>${html(artwork.technology)}</dd></div>` : ""}
         </dl>
@@ -459,12 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <div><dt>Stack</dt><dd>${artwork.ar.stack.map(html).join(", ")}</dd></div>
                 </dl>
                 <div class="ar-doc-placeholders">
-                  ${artwork.ar.processVideo ? `
-                    <figure class="ar-process-video">
-                      <video src="${html(artwork.ar.processVideo.src)}" controls preload="metadata"></video>
-                      <figcaption>${html(artwork.ar.processVideo.label)}<span>${html(artwork.ar.processVideo.note)}</span></figcaption>
-                    </figure>
-                  ` : `<div>AR media to be added</div>`}
+                  <div>AR media to be added</div>
                   ${artwork.ar.apk ? `
                     <div class="ar-build-card">
                       <span>Android Build</span>
@@ -544,7 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   <td>${html(artwork.classification)}</td>
                   <td>${html(artwork.medium)}</td>
                   <td>${html(artwork.year)}</td>
-                  <td>${artwork.ar ? "AR process materials included" : "Physical digital illustration"}</td>
+                  <td>${artwork.ar ? "AR process materials included; " : ""}Physical: ${html(physicalPresentation)}; Digital: ${html(digitalPaintingSpecs)}</td>
                 </tr>
               `).join("")}
             </tbody>
@@ -589,8 +591,18 @@ document.addEventListener("DOMContentLoaded", () => {
     ArtworkList()
   ].join("");
 
+  const scrollToHashTarget = () => {
+    if (!window.location.hash) return;
+    const targetId = decodeURIComponent(window.location.hash.slice(1));
+    const target = document.getElementById(targetId);
+    if (target) target.scrollIntoView({ block: "start" });
+  };
+
   /* Catalogue sections are rendered after main.js starts observing reveal items. */
   requestAnimationFrame(() => {
     app.querySelectorAll(".reveal").forEach(item => item.classList.add("visible"));
+    requestAnimationFrame(scrollToHashTarget);
   });
+
+  window.addEventListener("hashchange", scrollToHashTarget);
 });

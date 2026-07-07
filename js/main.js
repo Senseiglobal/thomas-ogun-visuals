@@ -8,6 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector("[data-nav-toggle]");
   const navMenu = document.querySelector("[data-nav-menu]");
   const nav = document.querySelector(".nav");
+  const themeStorageKey = "thomasOgunVisualsTheme";
+
+  const getStoredTheme = () => {
+    try {
+      return localStorage.getItem(themeStorageKey) || "light";
+    } catch (error) {
+      return "light";
+    }
+  };
+
+  const applyTheme = theme => {
+    const cleanTheme = theme === "dark" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", cleanTheme);
+    document.querySelectorAll("[data-theme-toggle]").forEach(button => {
+      const isDark = cleanTheme === "dark";
+      button.setAttribute("aria-pressed", String(isDark));
+      button.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      button.setAttribute("title", isDark ? "Switch to light theme" : "Switch to dark theme");
+    });
+  };
+
+  applyTheme(getStoredTheme());
 
   const siteSearchItems = [
     {
@@ -102,6 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"></path>
     </svg>`;
 
+  const iconTheme = `
+    <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+      <circle class="theme-icon-sun" cx="12" cy="12" r="4"></circle>
+      <path class="theme-icon-sun" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      <path class="theme-icon-moon" d="M20 14.6A7.8 7.8 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"></path>
+    </svg>`;
+
   /* Site-wide search and assistant shell. Replace the local replies with an AI API later. */
   const createConciergeTools = () => {
     if (!nav || document.querySelector("[data-search-toggle]")) return;
@@ -110,9 +139,23 @@ document.addEventListener("DOMContentLoaded", () => {
     navActions.className = "nav-actions";
     navActions.innerHTML = `
       <button class="icon-button" type="button" aria-label="Search site" data-search-toggle>${iconSearch}</button>
+      <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle>${iconTheme}</button>
       <a class="header-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeNMaJDExYKdK6wUML1uPVgHx3UqegIwOjhvAjnOCnCJ7kHqw/viewform" target="_blank" rel="noopener"><span>Work With Me</span></a>
     `;
     nav.appendChild(navActions);
+    applyTheme(document.documentElement.getAttribute("data-theme") || getStoredTheme());
+
+    navActions.querySelectorAll("[data-theme-toggle]").forEach(button => {
+      button.addEventListener("click", () => {
+        const nextTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        applyTheme(nextTheme);
+        try {
+          localStorage.setItem(themeStorageKey, nextTheme);
+        } catch (error) {
+          /* Theme still changes for the current visit if localStorage is unavailable. */
+        }
+      });
+    });
 
     const searchDialog = document.createElement("section");
     searchDialog.className = "search-panel";
