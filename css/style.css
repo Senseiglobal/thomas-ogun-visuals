@@ -3044,6 +3044,41 @@ textarea {
   width: 100%;
 }
 
+/* Square gallery system: artworks read as clean Instagram-style tiles. */
+.artwork-image,
+.catalogue-image-placeholder,
+.catalogue-card-image,
+.catalogue-detail-image,
+.ar-doc-image,
+.portfolio-art-link {
+  aspect-ratio: 1 / 1;
+  background: transparent;
+  border: 0;
+  display: block;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.artwork-image img,
+.catalogue-image-placeholder img,
+.catalogue-card-image img,
+.catalogue-detail-image img,
+.ar-doc-image img,
+.masonry-image.artwork-thumb {
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.masonry-image.artwork-thumb {
+  aspect-ratio: 1 / 1;
+}
+
 input,
 select,
 textarea {
