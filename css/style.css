@@ -3055,9 +3055,11 @@ textarea {
   background: transparent;
   border: 0;
   display: block;
+  height: auto;
   min-height: 0;
   overflow: hidden;
   padding: 0;
+  width: 100%;
 }
 
 .artwork-image img,
