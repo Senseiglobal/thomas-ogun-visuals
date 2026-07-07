@@ -1097,3 +1097,48 @@ h3 {
     font-size: 2.72rem;
   }
 }
+
+/* Aura Manager: keep hero text and image aligned horizontally on desktop and laptop widths. */
+@media (min-width: 961px) {
+  .aura-product-hero {
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  }
+
+  .aura-product-hero .aura-hero-visual {
+    justify-self: end;
+  }
+}
+
+/* Homepage Main Areas: mobile cards read as a clear list, not empty square blocks. */
+@media (max-width: 640px) {
+  .home-main-areas .section-heading {
+    margin-bottom: 22px;
+  }
+
+  .main-area-grid {
+    gap: 12px;
+  }
+
+  .main-area-grid .project-card {
+    display: block;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .main-area-grid .image-placeholder {
+    display: none;
+  }
+
+  .main-area-grid .project-card h3 {
+    font-size: 1.1rem;
+    line-height: 1.15;
+    margin-top: 0;
+  }
+
+  .main-area-grid .project-card p {
+    font-size: 0.94rem;
+    line-height: 1.55;
+    margin-top: 8px;
+  }
+}
