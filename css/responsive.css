@@ -432,7 +432,8 @@ button {
 h1,
 h2,
 h3 {
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  text-wrap: balance;
   word-break: normal;
 }
 
@@ -541,13 +542,27 @@ h3 {
     align-items: center;
     background: transparent;
     border: 1px solid transparent;
-    border-radius: 0;
+    border-radius: 8px;
     cursor: pointer;
     display: inline-flex;
     flex-direction: column;
     height: 44px;
     justify-content: center;
     margin-left: auto;
+    width: 44px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+    margin-left: 8px;
+  }
+
+  .nav-actions .header-cta {
+    display: none;
+  }
+
+  .icon-button {
+    height: 44px;
     width: 44px;
   }
 
@@ -666,6 +681,37 @@ h3 {
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .catalogue-hero-grid,
+  .catalogue-two-column,
+  .catalogue-detail,
+  .ar-doc-card,
+  .process-feature {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-section .section-heading {
+    margin-bottom: 18px;
+    max-width: 720px;
+  }
+
+  .catalogue-section .section-heading h2 {
+    font-size: clamp(2.25rem, 7vw, 4rem);
+  }
+
+  .catalogue-card-grid,
+  .process-placeholder-grid,
+  .catalogue-bts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalogue-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-toc {
+    top: 68px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -686,15 +732,20 @@ h3 {
 
   h1,
   .hero-copy h1 {
-    font-size: 3.35rem;
+    font-size: clamp(2.85rem, 12vw, 3.35rem);
     line-height: 0.98;
-    hyphens: auto;
+    hyphens: manual;
   }
 
   h2 {
     font-size: 2.25rem;
-    hyphens: auto;
+    hyphens: manual;
     line-height: 1.04;
+  }
+
+  .product-hero h1 {
+    font-size: clamp(3rem, 13vw, 4.35rem);
+    max-width: 8.8ch;
   }
 
   h3 {
@@ -832,15 +883,96 @@ h3 {
     border-left: 1px solid var(--line);
   }
 
+  .catalogue-hero {
+    padding-top: 112px;
+  }
+
+  .catalogue-cover-copy h1 {
+    font-size: clamp(3rem, 15vw, 4.8rem);
+  }
+
+  .catalogue-section .section-heading h2 {
+    font-size: clamp(2.1rem, 11vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .catalogue-cover-art dl div,
+  .catalogue-metadata div,
+  .catalogue-metadata.compact div {
+    gap: 8px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-card-grid,
+  .process-placeholder-grid,
+  .catalogue-bts-grid,
+  .ar-doc-placeholders {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .catalogue-fields section.wide,
+  .catalogue-fields section.key-question {
+    grid-column: auto;
+  }
+
+  .catalogue-detail-image,
+  .ar-doc-image {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .catalogue-toc {
+    margin-inline: 0;
+    padding-inline: 14px;
+    width: 100%;
+  }
+
   .callout {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .inline-register-form {
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+    width: 100%;
   }
 
   .contact-form input,
   .contact-form select,
   .contact-form textarea,
   .newsletter input {
+    width: 100%;
+  }
+
+  .floating-concierge {
+    bottom: 14px;
+    min-height: 46px;
+    padding: 0 14px;
+    right: 14px;
+  }
+
+  .search-card {
+    max-height: calc(100vh - 34px);
+    overflow-y: auto;
+    top: 17px;
+  }
+
+  .concierge-card {
+    bottom: 10px;
+    left: 10px;
+    max-height: calc(100vh - 20px);
+    max-width: none;
+    padding: 18px;
+    right: 10px;
+    width: auto;
+  }
+
+  .assistant-form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .assistant-form .btn {
     width: 100%;
   }
 }
@@ -859,6 +991,11 @@ h3 {
   .hero-copy h1,
   .page-hero h1 {
     font-size: 2.35rem;
+  }
+
+  .product-hero h1 {
+    font-size: clamp(2.8rem, 16vw, 3.65rem);
+    max-width: 8.8ch;
   }
 
   h2 {
@@ -893,6 +1030,51 @@ h3 {
   .site-footer {
     padding-top: 52px;
   }
+
+  .catalogue-hero {
+    padding-top: 98px;
+  }
+
+  .catalogue-cover-art,
+  .catalogue-chapter,
+  .catalogue-detail,
+  .ar-doc-card,
+  .essay-placeholder,
+  .process-placeholder {
+    padding: 16px;
+  }
+
+  .catalogue-image-placeholder,
+  .catalogue-detail-image,
+  .ar-doc-image {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .brand-text {
+    max-width: 52vw;
+  }
+
+  .floating-concierge span {
+    display: none;
+  }
+
+  .floating-concierge {
+    height: 48px;
+    padding: 0;
+    width: 48px;
+  }
+
+  .search-card,
+  .concierge-card {
+    padding: 16px;
+  }
+
+  .assistant-message-bot,
+  .assistant-message-user {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 360px) {
@@ -900,5 +1082,9 @@ h3 {
   .hero-copy h1,
   .page-hero h1 {
     font-size: 2.12rem;
+  }
+
+  .product-hero h1 {
+    font-size: 2.72rem;
   }
 }

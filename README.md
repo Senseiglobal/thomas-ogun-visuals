@@ -84,9 +84,9 @@ Update headings, descriptions, artwork titles, years, media, social links and co
 5. Select the `main` branch and `/root`.
 6. Save and wait for GitHub to publish the site.
 
-## Connecting `thomasogunvisual.com`
+## Connecting `thomasogunvisuals.com`
 
-1. In GitHub Pages settings, add `thomasogunvisual.com` as the custom domain.
+1. In GitHub Pages settings, add `thomasogunvisuals.com` as the custom domain.
 2. In your domain provider DNS settings, add GitHub Pages records.
 3. For an apex domain, use GitHub's current A records.
 4. For `www`, add a CNAME record pointing to your GitHub Pages URL.
