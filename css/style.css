@@ -3611,3 +3611,128 @@ html[data-theme="dark"] .theme-toggle .theme-icon-moon {
   color: #ffffff;
   z-index: 3;
 }
+
+/* YC-style readability pass: restrained type scale and clearer text rhythm. */
+:root {
+  --type-hero: clamp(3.5rem, 5vw, 4.5rem);
+  --type-section: clamp(2.5rem, 3.4vw, 3rem);
+  --type-h2: 2rem;
+  --type-h3: 1.5rem;
+  --type-card: 1.25rem;
+  --type-body: 1.125rem;
+  --type-small: 1rem;
+  --type-caption: 0.875rem;
+  --readable-width: 680px;
+}
+
+h1,
+h2,
+h3,
+h4,
+.hero-copy h1,
+.page-hero h1,
+.product-hero h1,
+.catalogue-cover-copy h1,
+.section-heading h2,
+.catalogue-section .section-heading h2 {
+  font-family: var(--sans);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+p,
+.lead,
+.catalogue-text,
+.text-stack,
+.section-heading p {
+  max-width: var(--readable-width);
+}
+
+body {
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+
+.hero-copy h1,
+.page-hero h1,
+.product-hero h1,
+.catalogue-cover-copy h1,
+.home-hero .hero-copy h1,
+.aura-product-hero h1 {
+  font-size: var(--type-hero);
+  line-height: 1.05;
+  max-width: 12ch;
+}
+
+.section-heading h2,
+.catalogue-section .section-heading h2,
+.aura-guide-player h2,
+.aura-founder-section h2 {
+  font-size: var(--type-section);
+  line-height: 1.1;
+}
+
+h2,
+.info-block h2 {
+  font-size: var(--type-h2);
+  line-height: 1.2;
+}
+
+h3,
+.project-card h3,
+.discipline-card h3,
+.artwork-card h3,
+.case-card h2,
+.catalogue-artwork-card h3 {
+  font-size: var(--type-card);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.btn {
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nav a {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.project-card p,
+.discipline-card p,
+.artwork-card p,
+.info-block p,
+.case-card p,
+.catalogue-text p {
+  font-size: var(--type-small);
+  line-height: 1.65;
+}
+
+.aura-founder-section .two-column {
+  align-items: start;
+  gap: clamp(32px, 6vw, 72px);
+}
+
+.aura-founder-section .text-stack {
+  min-width: 0;
+  max-width: 680px;
+}
+
+.aura-founder-section h2,
+.aura-founder-section .text-stack:nth-child(2) h2 {
+  font-size: var(--type-section);
+  line-height: 1.1;
+  max-width: 680px;
+  overflow-wrap: normal;
+  text-wrap: balance;
+  word-break: normal;
+}
+
+.aura-founder-section .clean-list {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}
