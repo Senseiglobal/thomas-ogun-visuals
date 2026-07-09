@@ -3419,6 +3419,19 @@ html[data-theme="dark"] .site-header.solid {
   box-shadow: 0 1px 0 var(--line);
 }
 
+html[data-theme="dark"] .nav-menu a {
+  color: rgba(255, 248, 235, 0.72);
+}
+
+html[data-theme="dark"] .nav-menu a:hover,
+html[data-theme="dark"] .nav-menu a[aria-current="page"] {
+  color: #fff8eb;
+}
+
+html[data-theme="dark"] .nav-menu a::after {
+  background: #fff8eb;
+}
+
 html[data-theme="dark"] .muted,
 html[data-theme="dark"] .catalogue-nav,
 html[data-theme="dark"] .home-main-areas,

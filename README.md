@@ -6,31 +6,31 @@ Modern static portfolio website for **Thomas Ogun Visuals**, designed for GitHub
 
 ```text
 /
-├── index.html
-├── about.html
-├── portfolio.html
-├── exhibition.html
-├── auramanager.html
-├── cinematography.html
-├── creative-direction.html
-├── professional-practice.html
-├── contact.html
-├── robots.txt
-├── sitemap.xml
-├── README.md
-├── css/
-│   ├── style.css
-│   └── responsive.css
-├── js/
-│   └── main.js
-├── assets/
-│   ├── images/
-│   ├── artwork/
-│   ├── cinematography/
-│   ├── exhibition/
-│   ├── icons/
-│   └── logo/
-└── documents/
+|-- index.html
+|-- about.html
+|-- portfolio.html
+|-- exhibition.html
+|-- auramanager.html
+|-- cinematography.html
+|-- creative-direction.html
+|-- professional-practice.html
+|-- contact.html
+|-- robots.txt
+|-- sitemap.xml
+|-- README.md
+|-- css/
+|   |-- style.css
+|   `-- responsive.css
+|-- js/
+|   `-- main.js
+|-- assets/
+|   |-- images/
+|   |-- artwork/
+|   |-- cinematography/
+|   |-- exhibition/
+|   |-- icons/
+|   `-- logo/
+`-- documents/
 ```
 
 ## Replacing Images
@@ -57,13 +57,15 @@ with:
 
 Use descriptive `alt` text for accessibility and SEO. Add `loading="lazy"` to non-hero images.
 
-The current build intentionally uses empty image placeholders. Add final images tomorrow by replacing placeholder blocks such as:
+### Aura Manager Hero Image
+
+The Aura Manager hero currently uses:
 
 ```html
-<div class="image-placeholder"></div>
+assets/images/aura-manager-thomas-desktop.png?v=20260709
 ```
 
-with optimized image tags.
+Use a wide desktop image when replacing it. Keep the subject's head and shirt mark visible across screen sizes. After replacing the image, update the query string version in `auramanager.html` so browsers do not keep an older cached image.
 
 ## Replacing Text
 
@@ -74,6 +76,18 @@ Most editable content lives directly in the HTML files. Search for comments such
 ```
 
 Update headings, descriptions, artwork titles, years, media, social links and contact details as the practice develops.
+
+## Theme and Cache Notes
+
+The site supports light and dark themes through CSS variables in `css/style.css`. Dark-mode navigation has a stronger contrast override so menu links remain readable against the black header. Light-mode navigation should be left unchanged unless the full design palette is being revised.
+
+Static assets are cache-busted with query strings such as:
+
+```html
+css/style.css?v=20260709-nav-contrast
+```
+
+When CSS, JavaScript or key hero images are updated, change the version string in the HTML files so GitHub Pages visitors receive the latest files.
 
 ## Deploying to GitHub Pages
 
@@ -114,6 +128,8 @@ For GitHub Pages, connect a third-party form service such as Formspree, Basin, G
 - Keep file names lowercase with hyphens, for example `identity-spirituality-01.jpg`.
 - Update `sitemap.xml` when adding new pages.
 - Test on mobile after major edits.
+- Check light and dark theme contrast after navigation or button changes.
+- Update asset query strings after CSS, JavaScript or hero-image edits.
 - Keep project documentation current for exhibitions, AR demos, press, screenshots and development records.
 
 ## Notes
