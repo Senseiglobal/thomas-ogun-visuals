@@ -3323,6 +3323,20 @@ label {
   width: 100%;
 }
 
+.home-main-areas .main-area-grid .media-filled {
+  background: var(--night);
+  border-style: solid;
+  overflow: hidden;
+}
+
+.home-main-areas .main-area-grid .media-filled img,
+.home-main-areas .main-area-grid .media-filled video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
 .home-main-areas .main-area-grid .project-card h3 {
   font-size: clamp(1.08rem, 1.6vw, 1.35rem);
   line-height: 1.15;
