@@ -1035,6 +1035,16 @@ h3 {
 
   .site-footer {
     padding-top: 52px;
+    padding-bottom: 88px;
+  }
+
+  .footer-grid {
+    gap: 38px;
+  }
+
+  .copyright {
+    margin-top: 42px;
+    padding-top: 22px;
   }
 
   .catalogue-hero {
@@ -1299,5 +1309,80 @@ h3 {
   .nav a {
     font-size: 1rem;
     font-weight: 500;
+  }
+}
+
+@media (max-width: 760px) {
+  .aura-product-hero.shell {
+    align-items: end;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: calc(100svh - 84px);
+    padding: 112px 20px 52px;
+  }
+
+  .aura-product-hero.shell::before {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.42) 44%, rgba(0, 0, 0, 0.86) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.18));
+  }
+
+  .aura-product-hero.shell > .reveal {
+    max-width: 100%;
+  }
+
+  .aura-product-hero.shell h1 {
+    font-size: clamp(2.75rem, 12vw, 3.35rem);
+    max-width: 9ch;
+  }
+
+  .aura-product-hero.shell .lead {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .aura-product-hero.shell .aura-hero-visual {
+    justify-self: stretch;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+
+  .aura-product-hero.shell .aura-hero-visual img {
+    object-position: center top;
+  }
+
+  .section-heading.centered {
+    text-align: left;
+  }
+
+  .aura-guide-wrap {
+    justify-items: stretch;
+  }
+
+  .aura-centered-video {
+    border-radius: 12px;
+  }
+
+  .aura-card-slider {
+    display: grid;
+    gap: 14px;
+    grid-auto-columns: minmax(82%, 1fr);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    margin-inline: -20px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 0 20px 12px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .aura-card-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .aura-feature-card {
+    min-height: 220px;
+    scroll-snap-align: start;
   }
 }
