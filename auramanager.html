@@ -7,8 +7,8 @@
   <meta property="og:title" content="Aura Manager | Thomas Ogun Visuals">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=20260709-nav-contrast">
-  <link rel="stylesheet" href="css/responsive.css?v=20260709-nav-contrast">
+  <link rel="stylesheet" href="css/style.css?v=20260709-aura-card-contrast">
+  <link rel="stylesheet" href="css/responsive.css?v=20260709-aura-card-contrast">
   <title>Aura Manager | Thomas Ogun Visuals</title>
 </head>
 <body>
@@ -79,26 +79,42 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section aura-how-section">
       <div class="shell">
-        <div class="section-heading reveal">
+        <div class="section-heading centered reveal">
           <p class="eyebrow">How It Works</p>
           <h2>One clear creative flow.</h2>
         </div>
-        <div class="three-column">
-          <article class="info-block reveal">
+        <div class="aura-how-grid">
+          <article class="aura-how-card reveal">
+            <span class="aura-step-number">01</span>
             <h3>Say What You Need</h3>
             <p>A note, song, scene, rollout, script or brand idea is enough.</p>
           </article>
-          <article class="info-block reveal delay-1">
+          <article class="aura-how-card reveal delay-1">
+            <span class="aura-step-number">02</span>
             <h3>Get a First Version</h3>
             <p>Aura Manager creates a draft, brief, treatment, prompt set or plan.</p>
           </article>
-          <article class="info-block reveal delay-2">
+          <article class="aura-how-card reveal delay-2">
+            <span class="aura-step-number">03</span>
             <h3>Keep Building</h3>
             <p>Save, refine, export or turn the output into the next asset.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section aura-user-flow-section" aria-labelledby="aura-user-flow-title">
+      <div class="shell">
+        <div class="section-heading centered reveal">
+          <p class="eyebrow">Case Study</p>
+          <h2 id="aura-user-flow-title">Aura Manager User Flow</h2>
+          <p>A streamlined AI-assisted creative workflow designed to help users move from idea to execution.</p>
+        </div>
+        <p class="aura-user-flow-intro reveal">This flow shows the user journey from first visit to AI-generated output, with each screen built to reduce friction and keep the creative task moving.</p>
+        <div class="user-flow-grid" data-user-flow-grid aria-label="Aura Manager user journey"></div>
+        <p class="user-flow-closing reveal">This flow highlights how Aura Manager reduces friction, supports creative exploration, and keeps users focused from prompt to final output.</p>
       </div>
     </section>
 
@@ -122,23 +138,23 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section aura-proof-section">
       <div class="shell">
-        <div class="section-heading reveal">
+        <div class="section-heading centered reveal">
           <p class="eyebrow">Why Aura Manager</p>
           <h2>Less blank page. More useful output.</h2>
           <p>Aura Manager is focused on practical creative progress, not endless prompting.</p>
         </div>
-        <div class="discipline-grid">
-          <article class="discipline-card reveal">
+        <div class="aura-proof-grid">
+          <article class="aura-proof-card reveal">
             <h3>Creative Memory</h3>
             <p>It learns the user's lane, style, references and recurring decisions.</p>
           </article>
-          <article class="discipline-card reveal delay-1">
+          <article class="aura-proof-card reveal delay-1">
             <h3>Useful First Drafts</h3>
             <p>It creates a starting point before over-asking for details.</p>
           </article>
-          <article class="discipline-card reveal delay-2">
+          <article class="aura-proof-card reveal delay-2">
             <h3>Flexible Outputs</h3>
             <p>It supports writing, film, art, brand, product and launch work.</p>
           </article>
@@ -156,6 +172,7 @@
     </div>
     <p class="copyright">&copy; 2026 Thomas Ogun Visuals. All Rights Reserved.</p>
   </footer>
-  <script src="js/main.js?v=20260709-nav-contrast"></script>
+  <script src="js/main.js?v=20260709-aura-card-contrast"></script>
+  <script src="js/aura-user-flow.js?v=20260709-aura-visible"></script>
 </body>
 </html>

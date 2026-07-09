@@ -3936,10 +3936,343 @@ h3,
 }
 
 .aura-feature-card {
+  background:
+    linear-gradient(145deg, rgba(217, 95, 24, 0.12), rgba(255, 250, 241, 0.96) 48%),
+    var(--white);
+  border-color: rgba(217, 95, 24, 0.18);
+  border-radius: 18px;
   min-height: 240px;
   padding: clamp(22px, 3vw, 32px);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.aura-feature-card:nth-child(2) {
+  background:
+    linear-gradient(145deg, rgba(185, 144, 72, 0.13), rgba(255, 250, 241, 0.96) 48%),
+    var(--white);
+}
+
+.aura-feature-card:nth-child(3) {
+  background:
+    linear-gradient(145deg, rgba(255, 154, 74, 0.12), rgba(255, 250, 241, 0.96) 48%),
+    var(--white);
+}
+
+.aura-feature-card:hover {
+  border-color: rgba(217, 95, 24, 0.34);
+  box-shadow: 0 20px 50px rgba(17, 16, 14, 0.08);
+  transform: translateY(-4px);
 }
 
 .aura-feature-card h3 {
   font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+}
+
+.aura-how-section {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(217, 95, 24, 0.1), transparent 28%),
+    var(--bg);
+}
+
+.aura-how-section .section-heading {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.aura-how-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aura-how-card {
+  background:
+    linear-gradient(180deg, rgba(255, 250, 241, 0.98), rgba(255, 250, 241, 0.9)),
+    var(--white);
+  border: 1px solid rgba(217, 95, 24, 0.18);
+  border-radius: 18px;
+  min-height: 260px;
+  padding: clamp(24px, 3vw, 36px);
+  position: relative;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.aura-how-card:nth-child(2) {
+  border-color: rgba(185, 144, 72, 0.28);
+}
+
+.aura-how-card:nth-child(3) {
+  border-color: rgba(255, 154, 74, 0.28);
+}
+
+.aura-how-card:hover {
+  border-color: rgba(217, 95, 24, 0.38);
+  box-shadow: 0 22px 56px rgba(17, 16, 14, 0.08);
+  transform: translateY(-4px);
+}
+
+.aura-step-number {
+  color: var(--sunset);
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+.aura-how-card h3 {
+  font-size: clamp(1.35rem, 1.7vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.aura-how-card p {
+  font-size: 1rem;
+  max-width: 360px;
+}
+
+.aura-user-flow-section {
+  background:
+    radial-gradient(circle at top left, rgba(217, 95, 24, 0.22), transparent 30%),
+    linear-gradient(180deg, #090909, #050505);
+  color: #fff8eb;
+  overflow: hidden;
+}
+
+.aura-user-flow-section .section-heading {
+  margin-bottom: 24px;
+}
+
+.aura-user-flow-section .eyebrow {
+  color: var(--sunset-soft);
+}
+
+.aura-user-flow-section h2,
+.aura-user-flow-section h3 {
+  color: #fff8eb;
+}
+
+.aura-user-flow-section .section-heading p,
+.aura-user-flow-intro {
+  color: rgba(255, 248, 235, 0.72);
+}
+
+.aura-user-flow-intro,
+.user-flow-closing {
+  margin-inline: auto;
+  max-width: 720px;
+  text-align: center;
+}
+
+.aura-user-flow-intro {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+
+.user-flow-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-top: 8px;
+}
+
+@media (max-width: 1100px) {
+  .user-flow-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.user-flow-card {
+  background:
+    linear-gradient(180deg, rgba(255, 248, 235, 0.075), rgba(255, 248, 235, 0.032)),
+    #0c0c0b;
+  border: 1px solid rgba(255, 248, 235, 0.14);
+  border-radius: 22px;
+  padding: 20px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.user-flow-card:hover {
+  border-color: rgba(255, 154, 74, 0.42);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+  transform: translateY(-6px);
+}
+
+.user-flow-media {
+  aspect-ratio: 9 / 16;
+  background:
+    linear-gradient(145deg, rgba(255, 154, 74, 0.16), rgba(255, 248, 235, 0.03)),
+    #030303;
+  border: 1px solid rgba(255, 248, 235, 0.1);
+  border-radius: 18px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.user-flow-media img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+}
+
+.user-flow-meta {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.user-flow-step {
+  background: var(--sunset-soft);
+  border-radius: 999px;
+  color: #111111;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 10px;
+}
+
+.user-flow-label {
+  color: rgba(255, 248, 235, 0.5);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.user-flow-card h3 {
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.user-flow-card p {
+  color: rgba(255, 248, 235, 0.72);
+  font-size: 0.95rem;
+}
+
+.user-flow-goal {
+  border-top: 1px solid rgba(255, 248, 235, 0.12);
+  margin: 16px 0 0;
+  padding-top: 14px;
+}
+
+.user-flow-goal strong {
+  color: var(--sunset-soft);
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.user-flow-closing {
+  color: #fff8eb;
+  font-weight: 650;
+  margin-bottom: 0;
+  margin-top: clamp(32px, 5vw, 56px);
+}
+
+.aura-proof-section .section-heading {
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.aura-proof-section .section-heading h2 {
+  margin-inline: auto;
+  max-width: 760px;
+}
+
+.aura-proof-section .section-heading p:not(.eyebrow) {
+  margin-inline: auto;
+  max-width: 680px;
+}
+
+.aura-proof-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aura-proof-card {
+  align-content: center;
+  background:
+    linear-gradient(145deg, rgba(217, 95, 24, 0.08), rgba(255, 250, 241, 0.96) 46%),
+    var(--white);
+  border: 1px solid rgba(217, 95, 24, 0.16);
+  border-radius: 18px;
+  display: grid;
+  min-height: 216px;
+  padding: clamp(28px, 3.2vw, 40px);
+  text-align: center;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.aura-proof-card:nth-child(2) {
+  background:
+    linear-gradient(145deg, rgba(185, 144, 72, 0.1), rgba(255, 250, 241, 0.96) 46%),
+    var(--white);
+}
+
+.aura-proof-card:nth-child(3) {
+  background:
+    linear-gradient(145deg, rgba(255, 154, 74, 0.1), rgba(255, 250, 241, 0.96) 46%),
+    var(--white);
+}
+
+.aura-proof-card:hover {
+  border-color: rgba(217, 95, 24, 0.34);
+  box-shadow: 0 22px 56px rgba(17, 16, 14, 0.08);
+  transform: translateY(-4px);
+}
+
+.aura-proof-card h3 {
+  font-size: clamp(1.25rem, 1.65vw, 1.45rem);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.aura-proof-card p {
+  margin-inline: auto;
+  max-width: 320px;
+}
+
+html[data-theme="dark"] .aura-feature-card,
+html[data-theme="dark"] .aura-how-card,
+html[data-theme="dark"] .aura-proof-card {
+  background:
+    linear-gradient(145deg, rgba(255, 154, 74, 0.14), rgba(255, 248, 235, 0.055) 48%),
+    #171613;
+  border-color: rgba(255, 154, 74, 0.24);
+  color: #fff8eb;
+}
+
+html[data-theme="dark"] .aura-feature-card:nth-child(2),
+html[data-theme="dark"] .aura-proof-card:nth-child(2) {
+  background:
+    linear-gradient(145deg, rgba(217, 173, 96, 0.15), rgba(255, 248, 235, 0.052) 48%),
+    #171613;
+}
+
+html[data-theme="dark"] .aura-feature-card:nth-child(3),
+html[data-theme="dark"] .aura-proof-card:nth-child(3) {
+  background:
+    linear-gradient(145deg, rgba(255, 190, 92, 0.14), rgba(255, 248, 235, 0.052) 48%),
+    #171613;
+}
+
+html[data-theme="dark"] .aura-feature-card h3,
+html[data-theme="dark"] .aura-how-card h3,
+html[data-theme="dark"] .aura-proof-card h3 {
+  color: #fff8eb;
+}
+
+html[data-theme="dark"] .aura-feature-card p,
+html[data-theme="dark"] .aura-how-card p,
+html[data-theme="dark"] .aura-proof-card p {
+  color: rgba(255, 248, 235, 0.76);
+}
+
+html[data-theme="dark"] .aura-feature-card:hover,
+html[data-theme="dark"] .aura-how-card:hover,
+html[data-theme="dark"] .aura-proof-card:hover {
+  border-color: rgba(255, 154, 74, 0.46);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
 }

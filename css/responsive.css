@@ -1363,7 +1363,8 @@ h3 {
     border-radius: 12px;
   }
 
-  .aura-card-slider {
+  .aura-card-slider,
+  .user-flow-grid {
     display: grid;
     gap: 14px;
     grid-auto-columns: minmax(82%, 1fr);
@@ -1372,17 +1373,65 @@ h3 {
     margin-inline: -20px;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 0 20px 12px;
+    padding: 10px 20px 14px;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
   }
 
-  .aura-card-slider::-webkit-scrollbar {
+  .aura-card-slider::-webkit-scrollbar,
+  .user-flow-grid::-webkit-scrollbar {
     display: none;
   }
 
-  .aura-feature-card {
+  .aura-feature-card,
+  .user-flow-card {
     min-height: 220px;
     scroll-snap-align: start;
+  }
+
+  .aura-how-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aura-how-card {
+    min-height: 0;
+  }
+
+  .aura-step-number {
+    margin-bottom: 20px;
+  }
+
+  .aura-user-flow-section .section-heading.centered,
+  .aura-user-flow-intro,
+  .user-flow-closing {
+    text-align: left;
+  }
+
+  .user-flow-media {
+    aspect-ratio: 9 / 15;
+  }
+}
+
+@media (max-width: 900px) {
+  .aura-proof-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aura-proof-card {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 760px) {
+  .aura-proof-section .section-heading.centered {
+    text-align: center;
+  }
+
+  .aura-proof-section .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .aura-proof-card {
+    padding: 28px 22px;
   }
 }

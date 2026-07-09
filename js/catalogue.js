@@ -41,7 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
         interaction: "Scanning the work activates the AR scene.",
         animationNotes: "Ocean movement, light pulses and slow figure motion.",
         soundDesign: "Ambient ancestral soundscape with a slow, contemplative tone.",
-        stack: ["Unity", "Vuforia", "Suno", "Visual Studio Code", "OpenAI Codex"]
+        stack: ["Unity", "Vuforia", "Suno", "Visual Studio Code", "OpenAI Codex"],
+        apk: {
+          version: "v0.1.1",
+          fileName: "AncestralBeing_v0.1.1.apk",
+          size: "91 MB",
+          note: "Android AR build for scanning and testing the work.",
+          href: "https://drive.google.com/file/d/13nUOaxfrr_g3oY8ddJLIqAa2GBV4NahH/view?usp=sharing"
+        }
       }
     },
     {
