@@ -7,7 +7,7 @@
   <meta property="og:title" content="Identity & Spirituality | Thomas Ogun Visuals">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=20260712-ar-documentation">
+  <link rel="stylesheet" href="css/style.css?v=20260713-registration-fix">
   <link rel="stylesheet" href="css/responsive.css?v=20260712-ar-documentation">
   <title>Identity &amp; Spirituality | Thomas Ogun Visuals</title>
 </head>
@@ -212,10 +212,11 @@
           <h2>Register for Updates</h2>
           <p>Join the exhibition list for future shows, previews and catalogue releases.</p>
         </div>
-        <form class="inline-register-form" action="#" method="post">
+        <form class="inline-register-form" data-exhibition-register>
           <label for="exhibition-email">Email address</label>
           <input id="exhibition-email" name="email" type="email" placeholder="name@example.com" required>
           <button class="btn btn-primary" type="submit">Register Interest</button>
+          <p class="form-status" data-register-status aria-live="polite">Your email app will open with a prepared message. Send it to complete your registration.</p>
         </form>
       </div>
     </section>
@@ -229,6 +230,6 @@
     </div>
     <p class="copyright">&copy; 2026 Thomas Ogun Visuals. All Rights Reserved.</p>
   </footer>
-  <script src="js/main.js?v=20260709-aura-case"></script>
+  <script src="js/main.js?v=20260713-registration-fix"></script>
 </body>
 </html>
