@@ -331,6 +331,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   createConciergeTools();
 
+  /* Static-site-safe exhibition registration through the visitor's email app. */
+  const exhibitionRegisterForm = document.querySelector("[data-exhibition-register]");
+  if (exhibitionRegisterForm) {
+    const emailInput = exhibitionRegisterForm.querySelector('input[type="email"]');
+    const submitButton = exhibitionRegisterForm.querySelector('button[type="submit"]');
+    const statusMessage = exhibitionRegisterForm.querySelector("[data-register-status]");
+
+    exhibitionRegisterForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!emailInput || !emailInput.checkValidity()) {
+        emailInput?.reportValidity();
+        return;
+      }
+
+      const visitorEmail = emailInput.value.trim();
+      const subject = "Future Exhibition Updates Registration";
+      const body = [
+        "Hello Thomas Ogun Visuals,",
+        "",
+        "Please add me to the list for future exhibitions, previews and catalogue releases.",
+        "",
+        `Email: ${visitorEmail}`,
+        "",
+        "Thank you."
+      ].join("\n");
+
+      if (statusMessage) {
+        statusMessage.textContent = "Your email app is opening. Send the prepared message to complete your registration.";
+        statusMessage.classList.add("is-active");
+      }
+      if (submitButton) submitButton.textContent = "Continue in Email";
+
+      window.location.href = `mailto:bookings@thomasogunvisuals.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
+
   /* Sticky header background after scroll. */
   const updateHeader = () => {
     if (!header) return;

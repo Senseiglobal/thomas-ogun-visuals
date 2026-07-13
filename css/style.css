@@ -1057,6 +1057,20 @@ textarea {
   min-height: 48px;
 }
 
+.form-status {
+  color: var(--muted);
+  font-size: 0.82rem;
+  grid-column: 1 / -1;
+  line-height: 1.5;
+  margin: 2px 0 0;
+  max-width: 52ch;
+}
+
+.form-status.is-active {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .upload-slot,
 .upload-grid div {
   align-items: center;
