@@ -1057,6 +1057,16 @@ textarea {
   min-height: 48px;
 }
 
+.inline-register-form .form-honeypot {
+  display: none !important;
+}
+
+.inline-register-form .btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
+}
+
 .form-status {
   color: var(--muted);
   font-size: 0.82rem;
@@ -1069,6 +1079,24 @@ textarea {
 .form-status.is-active {
   color: var(--ink);
   font-weight: 700;
+}
+
+.form-status.is-success {
+  color: #25633f;
+  font-weight: 700;
+}
+
+.form-status.is-error {
+  color: #9b2c2c;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .form-status.is-success {
+  color: #8de0ab;
+}
+
+[data-theme="dark"] .form-status.is-error {
+  color: #ffaaa5;
 }
 
 .upload-slot,

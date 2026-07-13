@@ -331,14 +331,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   createConciergeTools();
 
-  /* Static-site-safe exhibition registration through the visitor's email app. */
+  /* Submit exhibition registrations without leaving the page. */
   const exhibitionRegisterForm = document.querySelector("[data-exhibition-register]");
   if (exhibitionRegisterForm) {
     const emailInput = exhibitionRegisterForm.querySelector('input[type="email"]');
     const submitButton = exhibitionRegisterForm.querySelector('button[type="submit"]');
     const statusMessage = exhibitionRegisterForm.querySelector("[data-register-status]");
+    const defaultButtonLabel = submitButton?.textContent || "Register Interest";
 
-    exhibitionRegisterForm.addEventListener("submit", event => {
+    exhibitionRegisterForm.addEventListener("submit", async event => {
       event.preventDefault();
 
       if (!emailInput || !emailInput.checkValidity()) {
@@ -346,25 +347,58 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const visitorEmail = emailInput.value.trim();
-      const subject = "Future Exhibition Updates Registration";
-      const body = [
-        "Hello Thomas Ogun Visuals,",
-        "",
-        "Please add me to the list for future exhibitions, previews and catalogue releases.",
-        "",
-        `Email: ${visitorEmail}`,
-        "",
-        "Thank you."
-      ].join("\n");
-
       if (statusMessage) {
-        statusMessage.textContent = "Your email app is opening. Send the prepared message to complete your registration.";
+        statusMessage.textContent = "Sending your registration...";
         statusMessage.classList.add("is-active");
+        statusMessage.classList.remove("is-success", "is-error");
       }
-      if (submitButton) submitButton.textContent = "Continue in Email";
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
 
-      window.location.href = `mailto:bookings@thomasogunvisuals.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/bookings@thomasogunvisuals.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            email: emailInput.value.trim(),
+            message: "Please add this visitor to the list for future exhibitions, previews and catalogue releases.",
+            _subject: "Future Exhibition Updates Registration",
+            _url: "https://thomasogunvisuals.com/exhibition.html",
+            _captcha: "false",
+            _honey: exhibitionRegisterForm.querySelector('[name="_honey"]')?.value || ""
+          })
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || "Registration could not be sent.");
+        }
+
+        exhibitionRegisterForm.reset();
+        if (statusMessage) {
+          statusMessage.textContent = "Thank you. Your registration has been sent successfully. Please check your inbox for future exhibition updates.";
+          statusMessage.classList.remove("is-active", "is-error");
+          statusMessage.classList.add("is-success");
+        }
+        if (submitButton) submitButton.textContent = "Registered";
+      } catch (error) {
+        if (statusMessage) {
+          statusMessage.textContent = "We could not send your registration. Please try again or email bookings@thomasogunvisuals.com.";
+          statusMessage.classList.remove("is-active", "is-success");
+          statusMessage.classList.add("is-error");
+        }
+        if (submitButton) submitButton.textContent = "Try Again";
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          if (submitButton.textContent === "Sending...") submitButton.textContent = defaultButtonLabel;
+        }
+      }
     });
   }
 
