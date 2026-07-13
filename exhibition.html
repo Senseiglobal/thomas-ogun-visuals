@@ -7,7 +7,7 @@
   <meta property="og:title" content="Identity & Spirituality | Thomas Ogun Visuals">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css?v=20260713-registration-fix">
+  <link rel="stylesheet" href="css/style.css?v=20260713-registration-confirmation">
   <link rel="stylesheet" href="css/responsive.css?v=20260712-ar-documentation">
   <title>Identity &amp; Spirituality | Thomas Ogun Visuals</title>
 </head>
@@ -212,11 +212,15 @@
           <h2>Register for Updates</h2>
           <p>Join the exhibition list for future shows, previews and catalogue releases.</p>
         </div>
-        <form class="inline-register-form" data-exhibition-register>
+        <form class="inline-register-form" action="https://formsubmit.co/bookings@thomasogunvisuals.com" method="post" data-exhibition-register>
           <label for="exhibition-email">Email address</label>
           <input id="exhibition-email" name="email" type="email" placeholder="name@example.com" required>
+          <input type="hidden" name="_subject" value="Future Exhibition Updates Registration">
+          <input type="hidden" name="_url" value="https://thomasogunvisuals.com/exhibition.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button class="btn btn-primary" type="submit">Register Interest</button>
-          <p class="form-status" data-register-status aria-live="polite">Your email app will open with a prepared message. Send it to complete your registration.</p>
+          <p class="form-status" data-register-status role="status" aria-live="polite">Enter your email to receive future exhibition updates.</p>
         </form>
       </div>
     </section>
@@ -230,6 +234,6 @@
     </div>
     <p class="copyright">&copy; 2026 Thomas Ogun Visuals. All Rights Reserved.</p>
   </footer>
-  <script src="js/main.js?v=20260713-registration-fix"></script>
+  <script src="js/main.js?v=20260713-registration-confirmation"></script>
 </body>
 </html>
