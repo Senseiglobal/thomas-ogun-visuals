@@ -10,6 +10,72 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
   const themeStorageKey = "thomasOgunVisualsTheme";
 
+  const configurePrimaryNavigation = () => {
+    if (!navMenu) return;
+
+    const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const workPages = new Set([
+      "portfolio.html",
+      "album-campaign-direction.html",
+      "creative-direction.html",
+      "editorial-design-gallery.html",
+      "traditional-pencil-art.html",
+      "cinematography.html"
+    ]);
+    const exhibitionPages = new Set(["exhibition.html", "exhibition-catalogue.html"]);
+    const explorePages = new Set(["auramanager.html", "professional-practice.html", "press.html", "artwork-licensing.html"]);
+    const currentAttribute = isCurrent => isCurrent ? ' aria-current="page"' : "";
+
+    navMenu.innerHTML = `
+      <li><a href="index.html"${currentAttribute(currentFile === "index.html")}>Home</a></li>
+      <li><a href="about.html"${currentAttribute(currentFile === "about.html")}>About</a></li>
+      <li><a href="portfolio.html"${workPages.has(currentFile) ? ' class="is-section-current"' : ""}${currentAttribute(currentFile === "portfolio.html")}>Work</a></li>
+      <li><a href="exhibition.html"${exhibitionPages.has(currentFile) ? ' class="is-section-current"' : ""}${currentAttribute(currentFile === "exhibition.html")}>Exhibition</a></li>
+      <li class="nav-more-item">
+        <details class="nav-dropdown">
+          <summary${explorePages.has(currentFile) ? ' class="is-section-current"' : ""}>Explore</summary>
+          <ul class="nav-dropdown-menu">
+            <li><a href="auramanager.html"${currentAttribute(currentFile === "auramanager.html")}>Aura Manager</a></li>
+            <li><a href="professional-practice.html"${currentAttribute(currentFile === "professional-practice.html")}>Professional Practice</a></li>
+            <li><a href="press.html"${currentAttribute(currentFile === "press.html")}>Press &amp; Curators</a></li>
+            <li><a href="artwork-licensing.html"${currentAttribute(currentFile === "artwork-licensing.html")}>Pricing &amp; Permissions</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="contact.html"${currentAttribute(currentFile === "contact.html")}>Contact</a></li>
+    `;
+
+    document.addEventListener("click", event => {
+      document.querySelectorAll(".nav-dropdown[open]").forEach(dropdown => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.removeAttribute("open");
+        }
+      });
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".nav-dropdown[open]").forEach(dropdown => dropdown.removeAttribute("open"));
+      }
+    });
+  };
+
+  const addPressLinksToFooters = () => {
+    document.querySelectorAll(".site-footer").forEach(footer => {
+      const navigateHeading = Array.from(footer.querySelectorAll("h2")).find(heading => heading.textContent.trim() === "Navigate");
+      const list = navigateHeading?.nextElementSibling;
+      if (!list || list.querySelector('a[href="press.html"]')) return;
+
+      const item = document.createElement("li");
+      item.innerHTML = '<a href="press.html">Press &amp; Curators</a>';
+      const licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
+      list.insertBefore(item, licensingItem || null);
+    });
+  };
+
+  configurePrimaryNavigation();
+  addPressLinksToFooters();
+
   const getStoredTheme = () => {
     try {
       return localStorage.getItem(themeStorageKey) || "light";
@@ -48,14 +114,19 @@ document.addEventListener("DOMContentLoaded", () => {
       text: "Museum-style catalogue with chapters, artwork entries, AR documentation, curatorial essay and checklist."
     },
     {
+      title: "Artwork Licensing",
+      url: "artwork-licensing.html",
+      text: "USD licensing options, permitted uses, high-resolution delivery and artwork usage restrictions."
+    },
+    {
       title: "Aura Manager",
       url: "auramanager.html",
       text: "AI-powered creative thinking platform that turns rough ideas into documents, prompts, plans and production-ready content."
     },
     {
       title: "Cinematography",
-      url: "cinematography.html",
-      text: "Moving-image work for music, documentary, performance, commercial visuals and art films."
+      url: "album-campaign-direction.html",
+      text: "Camera-led music film and campaign work connecting Nigeria and South Africa."
     },
     {
       title: "Creative Direction",
@@ -66,6 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Professional Practice",
       url: "professional-practice.html",
       text: "Archive, publications, press, collaborations, technical research and documentation."
+    },
+    {
+      title: "Press & Curatorial Information",
+      url: "press.html",
+      text: "Critic and curator overview, selected projects, artist CV, exhibition catalogue, credits and review enquiries."
     },
     {
       title: "About",
@@ -94,13 +170,19 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       keys: ["video", "film", "cinema", "cinematography", "music"],
-      reply: "The Cinematography page is best for moving-image work, music videos, documentary pieces, performance films and visual treatments.",
-      url: "cinematography.html",
-      cta: "Open Cinematography"
+      reply: "The Album Campaign Direction case study shows the strongest moving-image work, including creative leadership, cinematography, editing and cross-country production.",
+      url: "album-campaign-direction.html",
+      cta: "View Film Case Study"
     },
     {
-      keys: ["press", "cv", "archive", "documentation", "publication", "research"],
-      reply: "Professional Practice collects the archive: exhibition documentation, process notes, publications, press, CV download areas and technical research.",
+      keys: ["critic", "curator", "press", "review", "interview", "cv"],
+      reply: "The Press and Curatorial Information page presents the artist overview, selected projects, verified credits, CV, catalogue and direct review contacts in one concise route.",
+      url: "press.html",
+      cta: "Open Press Page"
+    },
+    {
+      keys: ["archive", "documentation", "publication", "research"],
+      reply: "Professional Practice collects exhibition documentation, process notes, publications and technical research.",
       url: "professional-practice.html",
       cta: "Open Practice"
     },
@@ -192,12 +274,12 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <div class="assistant-thread" data-assistant-thread>
-          <div class="assistant-message assistant-message-bot">I can guide you to exhibitions, AR work, Aura Manager, cinematography, creative direction or contact details.</div>
+          <div class="assistant-message assistant-message-bot">I can guide you to exhibitions, AR work, film case studies, creative direction, press information or contact details.</div>
         </div>
         <div class="quick-prompts" aria-label="Suggested questions">
           <button type="button" data-prompt="Show me the exhibition">Exhibition</button>
           <button type="button" data-prompt="What is Aura Manager?">Aura Manager</button>
-          <button type="button" data-prompt="Where is the archive?">Archive</button>
+          <button type="button" data-prompt="Show me the press page">Press</button>
         </div>
         <form class="assistant-form" data-assistant-form>
           <label class="sr-only" for="assistant-input">Ask the concierge</label>
@@ -270,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
         addAssistantMessage(match.reply, "bot", { url: match.url, cta: match.cta });
       } else {
         addAssistantMessage(
-          "A good starting point is the Portfolio page. From there you can move into the exhibition, Aura Manager, cinematography, creative direction or the professional archive.",
+          "A good starting point is the Portfolio page. Critics and curators can also use the dedicated Press page for a concise overview, credits, CV and catalogue.",
           "bot",
           { url: "portfolio.html", cta: "Open Portfolio" }
         );
@@ -401,6 +483,76 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  /* Protect public artwork previews from casual saving and clarify licensing. */
+  const protectedArtworkSelector = [
+    ".artwork-image",
+    ".catalogue-cover-art .catalogue-image-placeholder",
+    ".catalogue-card-image",
+    ".catalogue-detail-image",
+    ".masonry-item .portfolio-art-link"
+  ].join(",");
+
+  const protectArtworkPreviews = root => {
+    const candidates = [];
+    if (root instanceof Element && root.matches(protectedArtworkSelector)) candidates.push(root);
+    if (root.querySelectorAll) candidates.push(...root.querySelectorAll(protectedArtworkSelector));
+
+    candidates.forEach(container => {
+      const images = container.querySelectorAll("img");
+      if (!images.length) return;
+
+      container.classList.add("protected-artwork-preview");
+      container.setAttribute("data-art-protected", "true");
+      container.setAttribute("title", "Protected artwork preview. Clean high-resolution files require a licence.");
+      images.forEach(image => {
+        image.draggable = false;
+        image.setAttribute("data-art-preview", "true");
+      });
+    });
+  };
+
+  let protectionToastTimer;
+  const showProtectionNotice = () => {
+    let toast = document.querySelector("[data-art-protection-toast]");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.className = "artwork-protection-toast";
+      toast.setAttribute("data-art-protection-toast", "");
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.appendChild(toast);
+    }
+
+    toast.textContent = "Protected preview. Purchase a licence for the clean high-resolution artwork file.";
+    toast.classList.add("is-visible");
+    window.clearTimeout(protectionToastTimer);
+    protectionToastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 3200);
+  };
+
+  protectArtworkPreviews(document);
+  if ("MutationObserver" in window) {
+    const artworkObserver = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node instanceof Element) protectArtworkPreviews(node);
+        });
+      });
+    });
+    artworkObserver.observe(document.body, { childList: true, subtree: true });
+  }
+
+  document.addEventListener("contextmenu", event => {
+    if (!event.target.closest?.("[data-art-protected]")) return;
+    event.preventDefault();
+    showProtectionNotice();
+  });
+
+  document.addEventListener("dragstart", event => {
+    if (!event.target.closest?.("[data-art-protected]")) return;
+    event.preventDefault();
+    showProtectionNotice();
+  });
 
   /* Sticky header background after scroll. */
   const updateHeader = () => {
