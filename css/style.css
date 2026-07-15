@@ -6833,6 +6833,25 @@ html[data-theme="dark"] .floating-concierge:focus-visible {
   color: var(--brand-plum);
 }
 
+.campaign-hero .campaign-back-button {
+  background: transparent;
+  border-color: var(--brand-gold);
+  color: var(--brand-cream);
+}
+
+html[data-theme="dark"] .campaign-hero .campaign-back-button {
+  background: transparent;
+  border-color: var(--brand-gold);
+  color: var(--brand-cream);
+}
+
+.campaign-hero .campaign-back-button:hover,
+.campaign-hero .campaign-back-button:focus-visible {
+  background: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: var(--brand-plum);
+}
+
 .campaign-hero::before {
   background: radial-gradient(circle at 80% 18%, rgba(225, 173, 1, 0.3), transparent 38%);
 }
