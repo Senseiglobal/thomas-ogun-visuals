@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "01",
       title: "The Ancestral Being",
       slug: "the-ancestral-being",
-      image: "assets/thumbnails/artwork/the-ancestral-being.webp",
+      image: "assets/artwork/identity-spirituality/the-ancestral-being.jpg",
       chapter: "Chapter I: Origins",
       classification: "Mixed Reality Installation",
       theme: "Ancestral Memory and Cultural Continuity",
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "02",
       title: "The Gods Eyes",
       slug: "the-gods-eyes",
-      image: "assets/thumbnails/artwork/the-gods-eyes.webp",
+      image: "assets/artwork/identity-spirituality/the-gods-eyes.jpg",
       chapter: "Chapter I: Origins",
       classification: "Mixed Reality Installation",
       theme: "Observation, Wisdom and Collective Awareness",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "03",
       title: "Survival",
       slug: "survival",
-      image: "assets/thumbnails/artwork/survival.webp",
+      image: "assets/artwork/identity-spirituality/survival.jpg",
       chapter: "Chapter II: Human Experience",
       classification: "Physical Artwork",
       theme: "Resilience, Endurance and the Human Spirit",
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "04",
       title: "The Void of Souls",
       slug: "the-void-of-souls",
-      image: "assets/thumbnails/artwork/the-void-of-souls.webp",
+      image: "assets/artwork/identity-spirituality/the-void-of-souls.jpg",
       chapter: "Chapter II: Human Experience",
       classification: "Physical Artwork",
       theme: "Collective Consciousness, Spiritual Energy and the Infinite",
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "05",
       title: "The Heart of War",
       slug: "the-heart-of-war",
-      image: "assets/thumbnails/artwork/the-heart-of-war.webp",
+      image: "assets/artwork/identity-spirituality/the-heart-of-war.jpg",
       chapter: "Chapter II: Human Experience",
       classification: "Physical Artwork",
       theme: "Conflict, Transformation and Inner Balance",
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "06",
       title: "Solitude",
       slug: "solitude",
-      image: "assets/thumbnails/artwork/solitude.webp",
+      image: "assets/artwork/identity-spirituality/solitude.jpg",
       chapter: "Chapter III: Reflection",
       classification: "Physical Artwork",
       theme: "Stillness, Reflection and Self-Discovery",
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "07",
       title: "Human Spirits",
       slug: "human-spirits",
-      image: "assets/thumbnails/artwork/human-spirits.webp",
+      image: "assets/artwork/identity-spirituality/human-spirits.jpg",
       chapter: "Chapter III: Reflection",
       classification: "Physical Artwork",
       theme: "Emotion, Collective Humanity and Spiritual Connection",
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "08",
       title: "Guardian of Dreams",
       slug: "guardian-of-dreams",
-      image: "assets/thumbnails/artwork/guardian-of-dreams.webp",
+      image: "assets/artwork/identity-spirituality/guardian-of-dreams.jpg",
       chapter: "Chapter IV: Becoming",
       classification: "Physical Artwork",
       theme: "Spiritual Protection, Intuition and Ancestral Wisdom",
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "09",
       title: "Girl Child",
       slug: "girl-child",
-      image: "assets/thumbnails/artwork/girl-child.webp",
+      image: "assets/artwork/identity-spirituality/girl-child.jpg",
       chapter: "Chapter IV: Becoming",
       classification: "Physical Artwork",
       theme: "Patriarchy, Resilience and Becoming",
@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
       number: "10",
       title: "Cultural Identity",
       slug: "cultural-identity",
-      image: "assets/thumbnails/artwork/cultural-identity.webp",
+      image: "assets/artwork/identity-spirituality/cultural-identity.jpg",
       chapter: "Chapter V: Legacy",
       classification: "Physical Artwork",
       theme: "Heritage, Belonging and Cultural Continuity",
@@ -448,11 +448,6 @@ document.addEventListener("DOMContentLoaded", () => {
           ${artwork.catalogueNote ? `<section class="wide"><h4>Catalogue Note</h4><p>${html(artwork.catalogueNote)}</p></section>` : ""}
           <section class="wide key-question"><h4>Key Question</h4><p>${html(artwork.keyQuestion)}</p></section>
         </div>
-        ${artwork.ar ? "" : `
-          <div class="button-row">
-            <a class="btn btn-primary" href="artwork-licensing.html?artwork=${html(artwork.slug)}#licence-options">Buy or License This Artwork</a>
-          </div>
-        `}
       </div>
     </article>
   `;

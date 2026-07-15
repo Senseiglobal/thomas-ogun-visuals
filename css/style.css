@@ -3940,7 +3940,6 @@ label {
 
 /* Theme and logo system: compact header mark, readable light/dark palettes. */
 :root {
-  --logo-image: url("../assets/logo/thomas-ogun-face-mark.png");
   --blue: #d95f18;
   --sunset: #d95f18;
   --sunset-soft: #ff9a4a;
@@ -3958,7 +3957,6 @@ html[data-theme="dark"] {
   --night: #070707;
   --shadow: 0 26px 70px rgba(0, 0, 0, 0.36);
   --white: #1b1a18;
-  --logo-image: url("../assets/logo/thomas-ogun-face-mark.png");
   --blue: #ff9a4a;
   --sunset: #ff9a4a;
   --sunset-soft: #ffd0ad;
@@ -4471,6 +4469,18 @@ h3,
   margin-bottom: 0;
 }
 
+.aura-guide-wrap .section-heading.centered,
+.aura-user-flow-section .section-heading.centered {
+  margin-inline: 0;
+  max-width: none;
+  text-align: left;
+}
+
+.aura-guide-wrap .section-heading.centered p,
+.aura-user-flow-section .section-heading.centered p {
+  margin-inline: 0;
+}
+
 .aura-centered-video {
   border-radius: var(--radius);
   justify-self: center;
@@ -4618,7 +4628,13 @@ h3,
 .user-flow-closing {
   margin-inline: auto;
   max-width: 720px;
-  text-align: center;
+  text-align: left;
+}
+
+.aura-product-hunt-footer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 42px;
 }
 
 .aura-user-flow-intro {
@@ -6145,7 +6161,7 @@ html[data-theme="dark"] .licensing-spec-card {
   }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    Critic and curator route
    ========================================================================== */
 
@@ -6544,7 +6560,7 @@ html[data-theme="dark"] .nav-dropdown summary.is-section-current {
   transform: scaleX(1);
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    Curated brand colour system
    Gold draws attention to actions, plum carries authority, cream keeps the
    gallery calm, and lavender adds a reflective cultural accent.
@@ -6559,15 +6575,15 @@ html[data-theme="dark"] .nav-dropdown summary.is-section-current {
   --brand-plum-soft: #2a1938;
   --brand-cream-soft: #f4e8d0;
   --brand-cream-raised: #fff9ec;
-  --brand-muted-light: #5f5368;
+  --brand-muted-light: #493c54;
   --brand-muted-dark: #d7c9df;
 
   --bg: var(--brand-cream);
   --bg-soft: var(--brand-cream-soft);
   --ink: var(--brand-plum);
   --muted: var(--brand-muted-light);
-  --line: rgba(28, 15, 41, 0.18);
-  --line-strong: rgba(28, 15, 41, 0.34);
+  --line: rgba(28, 15, 41, 0.24);
+  --line-strong: rgba(28, 15, 41, 0.44);
   --gold: var(--brand-gold);
   --gold-dark: var(--brand-gold-ink);
   --terracotta: var(--brand-lavender-ink);
@@ -6596,6 +6612,15 @@ html[data-theme="dark"] {
   --sunset: var(--brand-gold);
   --sunset-soft: var(--brand-gold);
   --shadow: 0 24px 64px rgba(28, 15, 41, 0.55);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="light"] :is(input, select, textarea)::placeholder {
+  color: #66566f;
+  opacity: 1;
 }
 
 body,
@@ -6757,6 +6782,20 @@ html[data-theme="dark"] .btn-secondary {
 html[data-theme="dark"] .site-footer p,
 html[data-theme="dark"] .site-footer a {
   color: var(--brand-muted-dark);
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible,
+html[data-theme="dark"] .site-footer a:hover,
+html[data-theme="dark"] .site-footer a:focus-visible {
+  color: #e1ad01;
+}
+
+.floating-concierge:hover,
+.floating-concierge:focus-visible,
+html[data-theme="dark"] .floating-concierge:hover,
+html[data-theme="dark"] .floating-concierge:focus-visible {
+  color: var(--brand-plum);
 }
 
 .home-hero .line-eyebrow,

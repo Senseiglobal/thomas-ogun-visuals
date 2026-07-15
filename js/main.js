@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "cinematography.html"
     ]);
     const exhibitionPages = new Set(["exhibition.html", "exhibition-catalogue.html"]);
-    const explorePages = new Set(["auramanager.html", "professional-practice.html", "press.html", "artwork-licensing.html"]);
+    const explorePages = new Set(["auramanager.html", "professional-practice.html", "press.html", "artwork-licensing.html", "service-inquiry.html"]);
     const currentAttribute = isCurrent => isCurrent ? ' aria-current="page"' : "";
 
     navMenu.innerHTML = `
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <summary${explorePages.has(currentFile) ? ' class="is-section-current"' : ""}>Explore</summary>
           <ul class="nav-dropdown-menu">
             <li><a href="auramanager.html"${currentAttribute(currentFile === "auramanager.html")}>Aura Manager</a></li>
+            <li><a href="service-inquiry.html"${currentAttribute(currentFile === "service-inquiry.html")}>Services &amp; Inquiry</a></li>
             <li><a href="professional-practice.html"${currentAttribute(currentFile === "professional-practice.html")}>Professional Practice</a></li>
             <li><a href="press.html"${currentAttribute(currentFile === "press.html")}>Press &amp; Curators</a></li>
             <li><a href="artwork-licensing.html"${currentAttribute(currentFile === "artwork-licensing.html")}>Pricing &amp; Permissions</a></li>
@@ -60,27 +61,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const addPressLinksToFooters = () => {
+  const addStudioLinksToFooters = () => {
     document.querySelectorAll(".site-footer").forEach(footer => {
       const navigateHeading = Array.from(footer.querySelectorAll("h2")).find(heading => heading.textContent.trim() === "Navigate");
       const list = navigateHeading?.nextElementSibling;
-      if (!list || list.querySelector('a[href="press.html"]')) return;
+      if (!list) return;
 
-      const item = document.createElement("li");
-      item.innerHTML = '<a href="press.html">Press &amp; Curators</a>';
       const licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
-      list.insertBefore(item, licensingItem || null);
+      const contactItem = list.querySelector('a[href="contact.html"]')?.closest("li");
+
+      if (!list.querySelector('a[href="press.html"]')) {
+        const pressItem = document.createElement("li");
+        pressItem.innerHTML = '<a href="press.html">Press &amp; Curators</a>';
+        list.insertBefore(pressItem, licensingItem || contactItem || null);
+      }
+
+      if (!list.querySelector('a[href="service-inquiry.html"]')) {
+        const servicesItem = document.createElement("li");
+        servicesItem.innerHTML = '<a href="service-inquiry.html">Services &amp; Inquiry</a>';
+        list.insertBefore(servicesItem, contactItem || null);
+      }
     });
   };
 
   configurePrimaryNavigation();
-  addPressLinksToFooters();
+  addStudioLinksToFooters();
 
   const getStoredTheme = () => {
     try {
-      return localStorage.getItem(themeStorageKey) || "light";
+      return localStorage.getItem(themeStorageKey) || "dark";
     } catch (error) {
-      return "light";
+      return "dark";
     }
   };
 
@@ -152,19 +163,30 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Contact",
       url: "contact.html",
       text: "Email, phone, location, social links and collaboration enquiries."
+    },
+    {
+      title: "Services & Project Inquiry",
+      url: "service-inquiry.html",
+      text: "Creative services, indicative project ranges and the studio project brief."
     }
   ];
 
   const conciergeReplies = [
     {
-      keys: ["exhibition", "identity", "spirituality", "artwork", "ar"],
-      reply: "Start with Identity & Spirituality. It shows the exhibition concept, artworks, AR process, catalogue area and installation documentation.",
+      keys: ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
+      reply: "Hello. I am the automated studio concierge. I can help you explore Thomas Ogun's work, understand services and licensing, or find the right enquiry route.",
+      url: "portfolio.html",
+      cta: "Explore Selected Work"
+    },
+    {
+      keys: ["exhibition", "identity", "spirituality", "installation", "augmented reality", "ar work"],
+      reply: "Identity & Spirituality is the best starting point. It brings together the physical artworks, AR experiences, catalogue, installation records and the ideas behind the exhibition.",
       url: "exhibition.html",
       cta: "Open Exhibition"
     },
     {
       keys: ["aura", "manager", "tool", "platform", "asset", "lyrics", "script"],
-      reply: "Aura Manager is the AI-powered creative thinking platform. It shows how rough ideas become documents, prompts, strategies, diagrams and production-ready creative outputs.",
+      reply: "Aura Manager is Thomas Ogun's creative technology case study. It shows how an early idea became a practical AI-assisted platform for planning, writing and production-ready creative output.",
       url: "auramanager.html",
       cta: "Open Aura Manager"
     },
@@ -187,10 +209,52 @@ document.addEventListener("DOMContentLoaded", () => {
       cta: "Open Practice"
     },
     {
-      keys: ["contact", "email", "collaborate", "book", "commission", "hire"],
-      reply: "For collaborations, commissions, screenings or creative direction enquiries, the Contact page is the quickest route.",
+      keys: ["consultation", "calendly", "schedule", "session", "strategy call"],
+      reply: "The Creative Strategy Consultation is a confirmed 60-minute session. Submit the short brief, complete the secure Stripe payment, and Stripe will take you to Calendly to choose your time.",
+      url: "service-inquiry.html#focused-session",
+      cta: "View 60-Minute Consultation"
+    },
+    {
+      keys: ["license", "licence", "licensing", "permission", "buy art", "purchase artwork", "download", "commercial use", "personal use"],
+      reply: "Artwork purchases use clear written permissions. Personal, publishing and commercial licences are separated so you can choose the rights that match your intended use before secure Stripe checkout.",
+      url: "artwork-licensing.html",
+      cta: "View Pricing & Permissions"
+    },
+    {
+      keys: ["pencil", "graphite", "traditional art", "sketch", "drawing"],
+      reply: "The Traditional Pencil Art gallery presents graphite studies rooted in observation, spirituality and identity. It is a useful view of the handmade foundation behind the wider digital practice.",
+      url: "traditional-pencil-art.html",
+      cta: "Open Pencil Art Gallery"
+    },
+    {
+      keys: ["editorial", "illustration", "album art", "cover design", "brand design"],
+      reply: "The editorial gallery brings together illustration, campaign systems, album artwork and brand-focused design. It shows how one visual idea is adapted across formats without losing its character.",
+      url: "editorial-design-gallery.html",
+      cta: "Open Editorial Gallery"
+    },
+    {
+      keys: ["turnaround", "deadline", "rush", "weekend", "deposit", "process", "how it works"],
+      reply: "Standard projects usually take 5 to 10 business days. The studio reviews briefs within 24 to 48 hours, and approved work is secured with a signed agreement and 50% deposit. Rush or weekend delivery carries a 25% premium.",
+      url: "service-inquiry.html#project-brief",
+      cta: "Review the Project Process"
+    },
+    {
+      keys: ["price", "pricing", "budget", "quote", "cost", "service", "project", "commission", "hire", "collaborate", "book"],
+      reply: "The Services & Inquiry page shows indicative USD ranges for film, creative direction, illustration, content systems, AR prototypes and the 60-minute strategy consultation. A short brief helps the studio recommend the right scope.",
+      url: "service-inquiry.html",
+      cta: "Start Project Inquiry"
+    },
+    {
+      keys: ["contact", "email", "phone", "whatsapp", "location"],
+      reply: "You can reach the studio through the contact page. Project briefs are best submitted through Services & Inquiry so the team receives your goals, budget and timing together.",
       url: "contact.html",
-      cta: "Open Contact"
+      cta: "Contact the Studio"
+    },
+    {
+      keys: ["thank", "thanks", "helpful", "great"],
+      reply: "You are welcome. Ask another question whenever you are ready, or use the portfolio to continue exploring the work.",
+      url: "portfolio.html",
+      cta: "Continue to Portfolio"
     }
   ];
 
@@ -222,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navActions.innerHTML = `
       <button class="icon-button" type="button" aria-label="Search site" data-search-toggle>${iconSearch}</button>
       <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle>${iconTheme}</button>
-      <a class="header-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeNMaJDExYKdK6wUML1uPVgHx3UqegIwOjhvAjnOCnCJ7kHqw/viewform" target="_blank" rel="noopener"><span>Work With Me</span></a>
+      <a class="header-cta" href="service-inquiry.html"><span>Work With Me</span></a>
     `;
     nav.appendChild(navActions);
     applyTheme(document.documentElement.getAttribute("data-theme") || getStoredTheme());
@@ -274,12 +338,13 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <div class="assistant-thread" data-assistant-thread>
-          <div class="assistant-message assistant-message-bot">I can guide you to exhibitions, AR work, film case studies, creative direction, press information or contact details.</div>
+          <div class="assistant-message assistant-message-bot">Hello. I am the automated studio concierge. Tell me what you are looking for and I will guide you to the most useful work, service or booking route.</div>
         </div>
         <div class="quick-prompts" aria-label="Suggested questions">
           <button type="button" data-prompt="Show me the exhibition">Exhibition</button>
-          <button type="button" data-prompt="What is Aura Manager?">Aura Manager</button>
-          <button type="button" data-prompt="Show me the press page">Press</button>
+          <button type="button" data-prompt="What services are available?">Services</button>
+          <button type="button" data-prompt="How do I book the 60-minute consultation?">Book a Consultation</button>
+          <button type="button" data-prompt="How does artwork licensing work?">Artwork Licensing</button>
         </div>
         <form class="assistant-form" data-assistant-form>
           <label class="sr-only" for="assistant-input">Ask the concierge</label>
@@ -340,23 +405,43 @@ document.addEventListener("DOMContentLoaded", () => {
       assistantThread.scrollTop = assistantThread.scrollHeight;
     };
 
+    let conciergeReplyCount = 0;
+    let lastConciergeTopic = null;
+
     const answerConcierge = prompt => {
       const cleanPrompt = prompt.trim();
       if (!cleanPrompt) return;
 
       addAssistantMessage(cleanPrompt, "user");
       const lowerPrompt = cleanPrompt.toLowerCase();
-      const match = conciergeReplies.find(item => item.keys.some(key => lowerPrompt.includes(key)));
+      const rankedMatches = conciergeReplies
+        .map(item => ({
+          item,
+          score: item.keys.reduce((total, key) => total + (lowerPrompt.includes(key) ? key.length : 0), 0)
+        }))
+        .filter(result => result.score > 0)
+        .sort((a, b) => b.score - a.score);
+      const match = rankedMatches[0]?.item || null;
+      const conversationalLead = conciergeReplyCount === 0
+        ? "Certainly. "
+        : conciergeReplyCount % 2 === 0
+          ? "Here is the clearest route. "
+          : "Of course. ";
 
       if (match) {
-        addAssistantMessage(match.reply, "bot", { url: match.url, cta: match.cta });
+        const repeatedTopic = lastConciergeTopic === match.cta;
+        const responseLead = repeatedTopic ? "To recap, " : conversationalLead;
+        addAssistantMessage(`${responseLead}${match.reply}`, "bot", { url: match.url, cta: match.cta });
+        lastConciergeTopic = match.cta;
       } else {
         addAssistantMessage(
-          "A good starting point is the Portfolio page. Critics and curators can also use the dedicated Press page for a concise overview, credits, CV and catalogue.",
+          "I may not have matched that exactly yet. The Portfolio is the best general starting point. If you are a critic or curator, the Press page provides the concise overview, credits, CV and catalogue.",
           "bot",
           { url: "portfolio.html", cta: "Open Portfolio" }
         );
+        lastConciergeTopic = "Open Portfolio";
       }
+      conciergeReplyCount += 1;
     };
 
     renderSearchResults("");
@@ -484,6 +569,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* Submit general contact enquiries without sending visitors away from the site. */
+  const generalContactForm = document.querySelector("[data-general-contact]");
+  if (generalContactForm) {
+    const submitButton = generalContactForm.querySelector('button[type="submit"]');
+    const statusMessage = generalContactForm.querySelector("[data-contact-status]");
+    const defaultButtonLabel = submitButton?.textContent || "Send Enquiry";
+
+    generalContactForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      if (!generalContactForm.checkValidity()) {
+        generalContactForm.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(generalContactForm);
+      if (formData.get("_honey")) return;
+
+      if (statusMessage) {
+        statusMessage.textContent = "Sending your enquiry...";
+        statusMessage.classList.remove("is-error", "is-success");
+        statusMessage.classList.add("is-sending");
+      }
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      }
+
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/bookings@thomasogunvisuals.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            name: formData.get("name"),
+            email: formData.get("email"),
+            project_type: formData.get("project"),
+            message: formData.get("message"),
+            _subject: `General Enquiry | ${formData.get("project")} | ${formData.get("name")}`,
+            _template: "table",
+            _captcha: "false",
+            _url: "https://thomasogunvisuals.com/contact.html",
+            _autoresponse: "Thank you for contacting Thomas Ogun Visuals. Your message has been received. We review enquiries Monday to Friday and will reply within 24 to 48 hours. For a detailed commission, you can also complete the Project Inquiry and Creative Brief on our website."
+          })
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || "The enquiry could not be sent.");
+        }
+
+        generalContactForm.reset();
+        if (statusMessage) {
+          statusMessage.textContent = "Thank you. Your enquiry has been sent successfully. We will reply within 24 to 48 hours.";
+          statusMessage.classList.remove("is-sending", "is-error");
+          statusMessage.classList.add("is-success");
+        }
+        if (submitButton) submitButton.textContent = "Message Sent";
+      } catch (error) {
+        if (statusMessage) {
+          statusMessage.textContent = "We could not send your enquiry. Please try again or email bookings@thomasogunvisuals.com.";
+          statusMessage.classList.remove("is-sending", "is-success");
+          statusMessage.classList.add("is-error");
+        }
+        if (submitButton) submitButton.textContent = "Try Again";
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          if (submitButton.textContent === "Sending...") submitButton.textContent = defaultButtonLabel;
+        }
+      }
+    });
+  }
+
   /* Protect public artwork previews from casual saving and clarify licensing. */
   const protectedArtworkSelector = [
     ".artwork-image",
@@ -499,6 +660,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (root.querySelectorAll) candidates.push(...root.querySelectorAll(protectedArtworkSelector));
 
     candidates.forEach(container => {
+      if (container.dataset.artProtection === "off") return;
+
       const images = container.querySelectorAll("img");
       if (!images.length) return;
 
