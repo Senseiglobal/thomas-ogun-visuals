@@ -3,6 +3,24 @@
    Handles navigation, sticky header state, reveal animations and filters.
    ========================================================================== */
 
+(() => {
+  const productionHosts = new Set([
+    "thomasogunvisuals.com",
+    "www.thomasogunvisuals.com"
+  ]);
+
+  if (!productionHosts.has(window.location.hostname)) return;
+  if (document.querySelector('script[data-cf-beacon]')) return;
+
+  const beacon = document.createElement("script");
+  beacon.type = "module";
+  beacon.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  beacon.dataset.cfBeacon = JSON.stringify({
+    token: "eaf8984eb52645be952ac392844914cc"
+  });
+  document.head.appendChild(beacon);
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("[data-header]");
   const navToggle = document.querySelector("[data-nav-toggle]");
