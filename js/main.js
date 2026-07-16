@@ -334,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="assistant-mark">${iconSpark}</span>
           <div>
             <p class="eyebrow">Studio Concierge</p>
-            <h2 id="concierge-title">Ask about the work</h2>
+            <h2 id="concierge-title">How can I help?</h2>
           </div>
         </div>
         <div class="assistant-thread" data-assistant-thread>
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <form class="assistant-form" data-assistant-form>
           <label class="sr-only" for="assistant-input">Ask the concierge</label>
-          <input id="assistant-input" type="text" placeholder="Ask about Thomas Ogun Visuals..." data-assistant-input>
+          <input id="assistant-input" type="text" placeholder="Type your question..." data-assistant-input>
           <button class="btn btn-primary" type="submit">Ask</button>
         </form>
       </div>
