@@ -1579,6 +1579,62 @@ h3 {
 }
 
 @media (max-width: 700px) {
+  .press-intro-grid,
+  .press-resources-layout,
+  .press-facts-grid,
+  .press-contact-grid {
+    gap: 28px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .press-intro-grid > *,
+  .press-resources-layout > *,
+  .press-facts-grid > *,
+  .press-contact-grid > * {
+    min-width: 0;
+  }
+
+  .press-statement {
+    border-left: 0;
+    border-top: 3px solid var(--brand-lavender);
+    padding-left: 0;
+    padding-top: 24px;
+  }
+
+  .press-resource {
+    align-items: start;
+    gap: 6px 12px;
+    grid-template-columns: 42px minmax(0, 1fr);
+    padding: 20px 0;
+  }
+
+  .press-resource small {
+    grid-column: 2;
+  }
+
+  .press-context-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .press-context-grid .info-block {
+    min-height: 0;
+  }
+
+  .press-fact-list div {
+    gap: 8px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .press-contact .button-row {
+    align-items: stretch;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .press-contact .btn {
+    width: 100%;
+  }
+
   .press-hero,
   .press-hero-content {
     min-height: 88svh;
