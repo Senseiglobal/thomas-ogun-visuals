@@ -1496,6 +1496,13 @@ h3 {
     width: min(400px, calc(100vw - 24px));
   }
 
+  .concierge-header h2 {
+    font-size: 1.35rem;
+    line-height: 1.1;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
   .assistant-thread {
     max-height: 190px;
     min-height: 96px;
@@ -1533,8 +1540,10 @@ h3 {
   }
 
   .concierge-card h2 {
-    font-size: 1.45rem;
-    margin-bottom: 8px;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    margin-bottom: 0;
+    white-space: nowrap;
   }
 
   .concierge-header {
@@ -1559,5 +1568,49 @@ h3 {
   .assistant-form input,
   .assistant-form .btn {
     min-height: 46px;
+  }
+}
+
+/* Press route: balanced cards and an editorial full-bleed hero. */
+@media (max-width: 840px) {
+  .press-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .press-hero,
+  .press-hero-content {
+    min-height: 88svh;
+  }
+
+  .press-hero::before {
+    background:
+      linear-gradient(0deg, rgba(28, 15, 41, 0.94) 0%, rgba(28, 15, 41, 0.68) 46%, rgba(28, 15, 41, 0.14) 76%, rgba(28, 15, 41, 0.28) 100%),
+      linear-gradient(90deg, rgba(28, 15, 41, 0.42), rgba(28, 15, 41, 0.12));
+  }
+
+  .press-hero-media {
+    object-position: center 38%;
+  }
+
+  .press-hero-content {
+    align-items: end;
+    padding-bottom: 48px;
+    padding-top: 116px;
+  }
+
+  .press-hero h1 {
+    font-size: clamp(2.7rem, 12vw, 4.1rem);
+    max-width: 9.5ch;
+  }
+
+  .press-hero .lead {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .press-project-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

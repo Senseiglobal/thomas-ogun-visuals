@@ -6166,40 +6166,82 @@ html[data-theme="dark"] .licensing-spec-card {
    ========================================================================== */
 
 .press-hero {
+  align-items: stretch;
+  background: var(--brand-plum);
+  color: var(--brand-cream);
+  display: grid;
+  min-height: 100svh;
   overflow: hidden;
+  padding: 0;
+  position: relative;
 }
 
-.press-hero-grid {
+.press-hero::before {
+  background:
+    linear-gradient(90deg, rgba(28, 15, 41, 0.94) 0%, rgba(28, 15, 41, 0.76) 40%, rgba(28, 15, 41, 0.24) 72%, rgba(28, 15, 41, 0.18) 100%),
+    linear-gradient(0deg, rgba(28, 15, 41, 0.6) 0%, rgba(28, 15, 41, 0.08) 55%, rgba(28, 15, 41, 0.34) 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.press-hero-media {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center 42%;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.press-hero-content {
   align-items: center;
   display: grid;
-  gap: clamp(36px, 6vw, 88px);
-  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+  grid-template-columns: minmax(0, 760px);
+  min-height: 100svh;
+  padding-bottom: clamp(64px, 8vw, 110px);
+  padding-top: clamp(130px, 15vw, 190px);
+  position: relative;
+  z-index: 2;
+}
+
+.press-hero-copy {
+  max-width: 760px;
 }
 
 .press-hero h1 {
-  max-width: 11ch;
+  color: var(--brand-cream);
+  font-size: clamp(3.3rem, 7vw, 6.7rem);
+  line-height: 0.94;
+  max-width: 10ch;
+  text-shadow: 0 16px 52px rgba(28, 15, 41, 0.48);
 }
 
 .press-hero .lead {
+  color: rgba(255, 245, 225, 0.86);
   max-width: 660px;
 }
 
-.press-portrait {
-  margin: 0;
+.press-hero .eyebrow {
+  color: var(--brand-gold);
 }
 
-.press-portrait img {
-  aspect-ratio: 4 / 3;
-  border: 1px solid var(--line);
-  object-fit: cover;
-  object-position: center 42%;
-  width: 100%;
+.press-hero .btn-secondary {
+  background: rgba(28, 15, 41, 0.3);
+  border-color: rgba(255, 245, 225, 0.75);
+  color: var(--brand-cream);
 }
 
-.press-portrait figcaption {
-  color: var(--muted);
-  font-size: var(--type-caption, 0.875rem);
-  padding-top: 12px;
+.press-hero .btn-primary:hover,
+.press-hero .btn-primary:focus-visible,
+.press-hero .btn-secondary:hover,
+.press-hero .btn-secondary:focus-visible {
+  background: var(--brand-lavender);
+  border-color: var(--brand-lavender);
+  color: var(--brand-plum);
 }
 
 .press-intro-grid,
@@ -6239,27 +6281,32 @@ html[data-theme="dark"] .licensing-spec-card {
 }
 
 .press-project-grid {
+  align-items: stretch;
   display: grid;
-  gap: 18px;
+  gap: clamp(18px, 2.4vw, 28px);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .press-project-card {
   background: var(--white);
   border: 1px solid var(--line);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow: hidden;
 }
 
 .press-project-card > a:first-child {
+  aspect-ratio: 16 / 10;
   background: var(--bg-soft);
   display: block;
   overflow: hidden;
 }
 
 .press-project-card img {
-  aspect-ratio: 16 / 10;
+  display: block;
+  height: 100%;
   object-fit: cover;
   transition: transform 350ms ease;
   width: 100%;
@@ -6273,11 +6320,18 @@ html[data-theme="dark"] .licensing-spec-card {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: clamp(20px, 2.4vw, 30px);
+  padding: clamp(20px, 2.2vw, 28px);
 }
 
 .press-project-copy h3 {
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.25rem, 1.7vw, 1.6rem);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.press-project-copy p:not(.eyebrow) {
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 .press-project-copy .text-link {
