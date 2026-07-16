@@ -731,11 +731,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeMenu = () => {
       navMenu.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("nav-open");
+      navMenu.querySelectorAll(".nav-dropdown[open]").forEach(dropdown => dropdown.removeAttribute("open"));
     };
 
     navToggle.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", String(isOpen));
+      document.body.classList.toggle("nav-open", isOpen);
     });
 
     navMenu.querySelectorAll("a").forEach(link => {
