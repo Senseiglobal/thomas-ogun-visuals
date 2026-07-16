@@ -1579,6 +1579,29 @@ h3 {
 }
 
 @media (max-width: 700px) {
+  .critic-entry-grid {
+    gap: 28px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .critic-entry-grid > * {
+    min-width: 0;
+  }
+
+  .critic-entry h2,
+  .critic-entry p {
+    max-width: none;
+  }
+
+  .critic-entry .button-row {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .critic-entry .btn {
+    width: 100%;
+  }
+
   .press-intro-grid,
   .press-resources-layout,
   .press-facts-grid,
