@@ -6942,6 +6942,10 @@ html[data-theme="dark"] .campaign-hero .campaign-back-button {
   color: var(--brand-cream);
 }
 
+.press-contact .btn-dark {
+  border-color: transparent;
+}
+
 .press-contact .btn-light {
   background: var(--brand-gold);
   border-color: var(--brand-gold);
