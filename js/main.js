@@ -10,6 +10,71 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
   const themeStorageKey = "thomasOgunVisualsTheme";
 
+  const ensureBrandMarks = () => {
+    document.querySelectorAll("a.brand").forEach(brand => {
+      if (brand.querySelector(".brand-mark")) return;
+
+      const mark = document.createElement("span");
+      mark.className = "brand-mark";
+      mark.setAttribute("aria-hidden", "true");
+      brand.prepend(mark);
+    });
+  };
+
+  const initSiteLoader = () => {
+    try {
+      if (sessionStorage.getItem("tov-loader-shown")) return;
+
+      const loader = document.createElement("div");
+      loader.className = "site-loader";
+      loader.setAttribute("aria-hidden", "true");
+      loader.innerHTML = '<span class="site-loader__mark"></span>';
+      document.body.prepend(loader);
+      sessionStorage.setItem("tov-loader-shown", "1");
+
+      let dismissed = false;
+      const dismiss = () => {
+        if (dismissed) return;
+        dismissed = true;
+        loader.classList.add("is-hidden");
+        window.setTimeout(() => loader.remove(), 260);
+      };
+
+      if (document.readyState === "complete") {
+        window.setTimeout(dismiss, 420);
+      } else {
+        window.addEventListener("load", () => window.setTimeout(dismiss, 420), { once: true });
+      }
+
+      window.setTimeout(dismiss, 1800);
+    } catch (error) {
+      // The loader must never prevent access to the site.
+    }
+  };
+
+  const configureNewsletterForms = () => {
+    document.querySelectorAll("form.newsletter").forEach(form => {
+      form.action = "https://buttondown.com/api/emails/embed-subscribe/thomasogunvisuals";
+      form.method = "post";
+      form.target = "_blank";
+
+      const email = form.querySelector('input[type="email"]');
+      if (email) {
+        email.name = "email";
+        email.required = true;
+        email.autocomplete = "email";
+      }
+
+      if (!form.querySelector('input[name="embed"]')) {
+        const embed = document.createElement("input");
+        embed.type = "hidden";
+        embed.name = "embed";
+        embed.value = "1";
+        form.appendChild(embed);
+      }
+    });
+  };
+
   const configurePrimaryNavigation = () => {
     if (!navMenu) return;
 
@@ -86,6 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   configurePrimaryNavigation();
   addStudioLinksToFooters();
+  ensureBrandMarks();
+  initSiteLoader();
+  configureNewsletterForms();
 
   const getStoredTheme = () => {
     try {
@@ -334,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="assistant-mark">${iconSpark}</span>
           <div>
             <p class="eyebrow">Studio Concierge</p>
-            <h2 id="concierge-title">How can I help?</h2>
+            <h2 id="concierge-title">Ask about the work</h2>
           </div>
         </div>
         <div class="assistant-thread" data-assistant-thread>
@@ -348,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <form class="assistant-form" data-assistant-form>
           <label class="sr-only" for="assistant-input">Ask the concierge</label>
-          <input id="assistant-input" type="text" placeholder="Type your question..." data-assistant-input>
+          <input id="assistant-input" type="text" placeholder="Ask about Thomas Ogun Visuals..." data-assistant-input>
           <button class="btn btn-primary" type="submit">Ask</button>
         </form>
       </div>
@@ -731,14 +799,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeMenu = () => {
       navMenu.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("nav-open");
-      navMenu.querySelectorAll(".nav-dropdown[open]").forEach(dropdown => dropdown.removeAttribute("open"));
     };
 
     navToggle.addEventListener("click", () => {
       const isOpen = navMenu.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", String(isOpen));
-      document.body.classList.toggle("nav-open", isOpen);
     });
 
     navMenu.querySelectorAll("a").forEach(link => {
