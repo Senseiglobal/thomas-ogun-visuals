@@ -1,0 +1,13 @@
+# Codex/runtime scratch folders
+.agents/
+.codex/
+work/
+outputs/
+
+# Private high-resolution artwork masters and purchased clean files
+.private-artwork-assets/
+
+# Local logs and OS/editor noise
+*.log
+Thumbs.db
+.DS_Store
