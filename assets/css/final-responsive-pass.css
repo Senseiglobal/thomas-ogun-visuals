@@ -19,8 +19,9 @@ body[data-page="portfolio"] .page-hero .eyebrow,.portfolio-page .page-hero .eyeb
 body[data-page="portfolio"] .page-hero.shell,.portfolio-page .page-hero.shell{margin-inline:0!important;max-width:none!important;padding-inline:clamp(20px,calc((100vw - 1240px)/2 + 20px),72px)!important;width:100%!important;}
 .exhibition-concept-banner{background:var(--brand-plum);border-block:1px solid var(--line);margin:0;overflow:hidden;}
 .exhibition-concept-banner img{display:block;height:auto;max-height:min(68svh,700px);object-fit:cover;object-position:center;width:100%;}
+@media(max-width:760px){body[data-page="auramanager"] .aura-product-hero.shell{margin-inline:0!important;max-width:none!important;width:100%!important;}}
 @media(max-width:640px){body[data-page="portfolio"] .page-hero :where(h1,.hero-title),.portfolio-page .page-hero :where(h1,.hero-title){font-size:clamp(2.1rem,9vw,3.25rem)!important;max-width:18ch!important;text-wrap:balance;}}
-body[data-page="service-inquiry"] .service-hero,body[data-page="service-inquiry"] .page-hero,body[data-page="service-inquiry"] .hero{background-image:linear-gradient(90deg,rgba(28,11,42,.86),rgba(28,11,42,.55)),url("../images/service-inquiry-hero.jpg")!important;background-size:cover!important;background-position:center 42%!important;color:var(--tov-cream)!important;}
+body[data-page="service-inquiry"] .service-hero,body[data-page="service-inquiry"] .page-hero,body[data-page="service-inquiry"] .hero{background-image:linear-gradient(90deg,rgba(28,11,42,.86),rgba(28,11,42,.55)),url("../images/service-inquiry-hero.webp")!important;background-size:cover!important;background-position:center 42%!important;color:var(--tov-cream)!important;}
 .floating-concierge{max-width:min(92vw,220px);}
 .concierge-panel,.studio-concierge{max-width:min(92vw,420px);max-height:82vh;overflow:auto;}
 .concierge-panel :where(h2,h3),.studio-concierge :where(h2,h3){font-size:clamp(1.7rem,6vw,2.4rem);line-height:1.05;text-wrap:balance;}
