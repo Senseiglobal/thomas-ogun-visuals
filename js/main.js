@@ -402,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <span class="assistant-mark">${iconSpark}</span>
           <div>
             <p class="eyebrow">Studio Concierge</p>
-            <h2 id="concierge-title">Ask about the work</h2>
+            <h2 id="concierge-title">Ask me anything</h2>
           </div>
         </div>
         <div class="assistant-thread" data-assistant-thread>
