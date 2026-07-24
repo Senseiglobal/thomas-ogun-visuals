@@ -4,7 +4,7 @@
   document.querySelectorAll('header .brand img.tov-brand-icon, header .brand img.brand-icon, .site-header .brand img.tov-brand-icon, .site-header .brand img.brand-icon').forEach(el => el.remove());
   document.querySelectorAll('img').forEach((img,i)=>{ if(i>1 && !img.hasAttribute('loading')) img.loading='lazy'; if(!img.hasAttribute('decoding')) img.decoding='async'; if(!img.alt) img.alt='Thomas Ogun Visuals project image'; });
   document.querySelectorAll('a').forEach(a => { const text=(a.textContent||'').trim().toLowerCase(); const href=a.getAttribute('href')||''; if(text.includes('book a consultation') && /service-inquiry\.html#services/.test(href)) a.setAttribute('href','service-inquiry.html#focused-session'); });
-  document.querySelectorAll('h1,h2,h3,p,a,button,span').forEach(el=>{ if((el.textContent||'').trim()==='Ask about the work') el.textContent='How can I help?'; });
+  document.querySelectorAll('h1,h2,h3,p,a,button,span').forEach(el=>{ if((el.textContent||'').trim()==='Ask about the work') el.textContent='Ask me anything'; });
   document.querySelectorAll('form').forEach(form => {
     const text=(form.textContent||'').toLowerCase(); const email=form.querySelector('input[type="email"], input[name="email"]'); if(!email) return;
     if(text.includes('newsletter') || form.closest('.site-footer') || form.className.toLowerCase().includes('newsletter')){
