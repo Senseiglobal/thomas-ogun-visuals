@@ -55,6 +55,14 @@ body[data-page="press"] #critical-context-title{font-size:clamp(1rem,3.5vw,3.7re
 .ar-demo-dialog-close{align-items:center;background:transparent;border:1px solid rgba(255,245,225,.45);border-radius:50%;color:inherit;cursor:pointer;display:inline-flex;font-size:1.7rem;height:2.2rem;justify-content:center;line-height:1;position:absolute;right:1rem;top:1rem;width:2.2rem;}
 .ar-demo-dialog-close:hover,.ar-demo-dialog-close:focus-visible{background:var(--brand-cream);color:var(--brand-plum);outline:2px solid var(--brand-gold);outline-offset:2px;}
 body[data-page="auramanager"] .aura-product-hero.shell{margin-inline:0!important;max-width:none!important;width:100%!important;}
+/* Aura Manager's creative-flow intro is a single, centred text stack. */
+body[data-page="auramanager"] .aura-card-section .section-heading{display:grid;gap:clamp(.55rem,1.5vw,.9rem);grid-template-columns:1fr;justify-items:center;margin-inline:auto;max-width:960px;text-align:center;}
+body[data-page="auramanager"] .aura-card-section .section-heading .eyebrow,body[data-page="auramanager"] .aura-card-section .section-heading h2{grid-column:auto;margin:0;}
+body[data-page="auramanager"] .aura-card-section .section-heading h2{font-size:clamp(1.55rem,4.25vw,3.35rem);line-height:1.08;max-width:none;}
+body[data-page="auramanager"] .aura-card-section .section-heading h2 span{display:block;white-space:nowrap;}
+body[data-page="auramanager"] .aura-how-section .section-heading{display:grid;gap:clamp(.55rem,1.5vw,.9rem);grid-template-columns:1fr;justify-items:center;margin-inline:auto;max-width:960px;text-align:center;}
+body[data-page="auramanager"] .aura-how-section .section-heading .eyebrow,body[data-page="auramanager"] .aura-how-section .section-heading h2{grid-column:auto;margin:0;}
+body[data-page="auramanager"] .aura-how-section .section-heading h2{font-size:clamp(1.55rem,4.25vw,3.35rem);line-height:1.08;max-width:none;}
 @media(max-width:640px){body[data-page="portfolio"] .page-hero :where(h1,.hero-title),.portfolio-page .page-hero :where(h1,.hero-title){font-size:clamp(2.1rem,9vw,3.25rem)!important;max-width:18ch!important;text-wrap:balance;}}
 body[data-page="service-inquiry"] .service-hero,body[data-page="service-inquiry"] .page-hero,body[data-page="service-inquiry"] .hero{background-image:linear-gradient(90deg,rgba(28,11,42,.86),rgba(28,11,42,.55)),url("../images/service-inquiry-hero.webp")!important;background-size:cover!important;background-position:center 42%!important;color:var(--tov-cream)!important;}
 .floating-concierge{max-width:min(92vw,220px);}
