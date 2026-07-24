@@ -19,6 +19,22 @@ body[data-page="portfolio"] .page-hero .eyebrow,.portfolio-page .page-hero .eyeb
 body[data-page="portfolio"] .page-hero.shell,.portfolio-page .page-hero.shell{margin-inline:0!important;max-width:none!important;padding-inline:clamp(20px,calc((100vw - 1240px)/2 + 20px),72px)!important;width:100%!important;}
 .exhibition-concept-banner{background:var(--brand-plum);border-block:1px solid var(--line);margin:0;overflow:hidden;}
 .exhibition-concept-banner img{display:block;height:auto;max-height:min(68svh,700px);object-fit:cover;object-position:center;width:100%;}
+.exhibition-gallery-section{background:var(--brand-plum);color:var(--brand-cream);}
+.exhibition-gallery-heading{margin-bottom:clamp(28px,4vw,48px);max-width:720px;}
+.exhibition-gallery-heading :where(h2,p){color:inherit;}
+.exhibition-gallery-grid{display:grid;gap:clamp(10px,1.4vw,18px);grid-template-columns:repeat(4,minmax(0,1fr));}
+.exhibition-gallery-item{aspect-ratio:1;background:var(--brand-plum-soft);border:1px solid rgba(255,245,225,.18);border-radius:10px;margin:0;overflow:hidden;}
+.exhibition-gallery-item img{display:block;height:100%;object-fit:cover;transition:transform 260ms ease;width:100%;}
+.exhibition-gallery-item.protected-artwork-preview::before,.exhibition-gallery-item.protected-artwork-preview::after{display:none;}
+@media(hover:hover){.exhibition-gallery-item:hover img{transform:scale(1.035);}}
+@media(max-width:900px){.exhibition-gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:600px){.exhibition-gallery-grid{gap:10px;grid-template-columns:repeat(2,minmax(0,1fr));}}
+.exhibition-artwork-section .section-heading h2{font-size:clamp(1.55rem,5vw,3.7rem);max-width:none;white-space:nowrap;}
+.exhibition-enquiry-title{font-size:clamp(1.6rem,3.8vw,3.7rem)!important;max-width:none!important;}
+.exhibition-enquiry-title span{display:block;white-space:nowrap;}
+body[data-page="exhibition"] .page-hero h1,body[data-page="exhibition"] .text-stack.narrow>h2{font-size:clamp(1.55rem,5.25vw,3.7rem);max-width:none;white-space:nowrap;}
+.exhibition-gallery-heading{max-width:none;}
+.exhibition-gallery-heading h2{font-size:clamp(1rem,4.9vw,3rem);max-width:none;white-space:nowrap;}
 body[data-page="auramanager"] .aura-product-hero.shell{margin-inline:0!important;max-width:none!important;width:100%!important;}
 @media(max-width:640px){body[data-page="portfolio"] .page-hero :where(h1,.hero-title),.portfolio-page .page-hero :where(h1,.hero-title){font-size:clamp(2.1rem,9vw,3.25rem)!important;max-width:18ch!important;text-wrap:balance;}}
 body[data-page="service-inquiry"] .service-hero,body[data-page="service-inquiry"] .page-hero,body[data-page="service-inquiry"] .hero{background-image:linear-gradient(90deg,rgba(28,11,42,.86),rgba(28,11,42,.55)),url("../images/service-inquiry-hero.webp")!important;background-size:cover!important;background-position:center 42%!important;color:var(--tov-cream)!important;}
