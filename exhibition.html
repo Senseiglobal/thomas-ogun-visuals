@@ -17,7 +17,7 @@
   <title>Identity &amp; Spirituality | Thomas Ogun Visuals</title>
 
 <link rel="icon" type="image/png" href="assets/images/tov-favicon.png?v=20260721-logo"><link rel="apple-touch-icon" href="assets/images/tov-favicon.png?v=20260721-logo">
-  <link rel="stylesheet" href="assets/css/final-responsive-pass.css?v=20260724-single-line-headings">
+  <link rel="stylesheet" href="assets/css/final-responsive-pass.css?v=20260724-ar-demo-videos">
 </head>
 <body data-page="exhibition" class="tov-site">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -164,8 +164,22 @@
           <article class="info-block reveal delay-2"><h3>Creative Process</h3><p>Research, testing, scanning and installation.</p></article>
         </div>
         <div class="media-grid">
-          <div class="media-placeholder upload-slot reveal">The Ancestral Being AR demo upload</div>
-          <div class="media-placeholder upload-slot reveal delay-1">The Gods Eyes AR demo upload</div>
+          <article class="ar-demo-card reveal">
+            <img src="assets/videos/exhibition/the-ancestral-being-ar-demo-poster.webp" alt="Preview of The Ancestral Being augmented reality demo" width="720" height="1280" loading="lazy" decoding="async">
+            <div class="ar-demo-card-content">
+              <p class="eyebrow">AR Demo</p>
+              <h3>The Ancestral Being</h3>
+              <button class="ar-demo-play" type="button" data-ar-demo-open data-ar-demo-title="The Ancestral Being" data-ar-demo-src="assets/videos/exhibition/the-ancestral-being-ar-demo.mp4" data-ar-demo-poster="assets/videos/exhibition/the-ancestral-being-ar-demo-poster.webp" aria-haspopup="dialog"><span aria-hidden="true">&#9658;</span> Play demo</button>
+            </div>
+          </article>
+          <article class="ar-demo-card reveal delay-1">
+            <img src="assets/videos/exhibition/the-gods-eyes-ar-demo-poster.webp" alt="Preview of The Gods Eyes augmented reality demo" width="720" height="1280" loading="lazy" decoding="async">
+            <div class="ar-demo-card-content">
+              <p class="eyebrow">AR Demo</p>
+              <h3>The Gods Eyes</h3>
+              <button class="ar-demo-play" type="button" data-ar-demo-open data-ar-demo-title="The Gods Eyes" data-ar-demo-src="assets/videos/exhibition/the-gods-eyes-ar-demo.mp4" data-ar-demo-poster="assets/videos/exhibition/the-gods-eyes-ar-demo-poster.webp" aria-haspopup="dialog"><span aria-hidden="true">&#9658;</span> Play demo</button>
+            </div>
+          </article>
           <article class="ar-access-card ar-qr-card reveal delay-2">
             <p class="eyebrow">Android AR Access</p>
             <h3>Scan to Download</h3>
@@ -279,6 +293,14 @@
       </div>
     </section>
   </main>
+  <dialog class="ar-demo-dialog" id="ar-demo-dialog" aria-labelledby="ar-demo-dialog-title">
+    <div class="ar-demo-dialog-inner">
+      <button class="ar-demo-dialog-close" type="button" data-ar-demo-close aria-label="Close AR demo">&times;</button>
+      <p class="eyebrow">AR Demo</p>
+      <h2 id="ar-demo-dialog-title">AR Demo</h2>
+      <video data-ar-demo-player controls playsinline preload="none"></video>
+    </div>
+  </dialog>
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div><a class="brand footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>Thomas Ogun Visuals</span></a><p>Art, AR, cinematography and direction.</p></div>
@@ -289,6 +311,7 @@
     <p class="copyright">&copy; 2026 Thomas Ogun Visuals. All Rights Reserved.</p>
   </footer>
   <script src="js/main.js?v=20260715-service-inquiry"></script>
+  <script src="js/exhibition-demos.js?v=20260724" defer></script>
 <!-- Cloudflare Web Analytics --><!-- End Cloudflare Web Analytics -->
   <script src="assets/js/site-final-pass.js" defer></script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eaf8984eb52645be952ac392844914cc"}'></script>
