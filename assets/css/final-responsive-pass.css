@@ -32,6 +32,9 @@ body[data-page="portfolio"] .page-hero.shell,.portfolio-page .page-hero.shell{ma
 .exhibition-artwork-section .section-heading h2{font-size:clamp(1.55rem,5vw,3.7rem);max-width:none;white-space:nowrap;}
 .exhibition-enquiry-title{font-size:clamp(1.6rem,3.8vw,3.7rem)!important;max-width:none!important;}
 .exhibition-enquiry-title span{display:block;white-space:nowrap;}
+body[data-page="exhibition"] .page-hero h1,body[data-page="exhibition"] .text-stack.narrow>h2{font-size:clamp(1.55rem,5.25vw,3.7rem);max-width:none;white-space:nowrap;}
+.exhibition-gallery-heading{max-width:none;}
+.exhibition-gallery-heading h2{font-size:clamp(1rem,4.9vw,3rem);max-width:none;white-space:nowrap;}
 body[data-page="auramanager"] .aura-product-hero.shell{margin-inline:0!important;max-width:none!important;width:100%!important;}
 @media(max-width:640px){body[data-page="portfolio"] .page-hero :where(h1,.hero-title),.portfolio-page .page-hero :where(h1,.hero-title){font-size:clamp(2.1rem,9vw,3.25rem)!important;max-width:18ch!important;text-wrap:balance;}}
 body[data-page="service-inquiry"] .service-hero,body[data-page="service-inquiry"] .page-hero,body[data-page="service-inquiry"] .hero{background-image:linear-gradient(90deg,rgba(28,11,42,.86),rgba(28,11,42,.55)),url("../images/service-inquiry-hero.webp")!important;background-size:cover!important;background-position:center 42%!important;color:var(--tov-cream)!important;}
