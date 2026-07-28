@@ -132,8 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const list = navigateHeading?.nextElementSibling;
       if (!list) return;
 
-      const licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
+      let licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
       const contactItem = list.querySelector('a[href="contact.html"]')?.closest("li");
+
+      if (licensingItem) {
+        licensingItem.querySelector("a").textContent = "Artwork Shop";
+      } else {
+        licensingItem = document.createElement("li");
+        licensingItem.innerHTML = '<a href="artwork-licensing.html">Artwork Shop</a>';
+        list.insertBefore(licensingItem, contactItem || null);
+      }
 
       if (!list.querySelector('a[href="press.html"]')) {
         const pressItem = document.createElement("li");
