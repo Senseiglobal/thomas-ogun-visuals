@@ -135,7 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
       let licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
       const contactItem = list.querySelector('a[href="contact.html"]')?.closest("li");
 
-      if (licensingItem) {
+      const artworkShortcut = footer.querySelector('a[href="#shop-artworks"], a[href="artwork-licensing.html#shop-artworks"]');
+
+      if (artworkShortcut) {
+        licensingItem?.remove();
+        licensingItem = null;
+      } else if (licensingItem) {
         licensingItem.querySelector("a").textContent = "Artwork Shop";
       } else {
         licensingItem = document.createElement("li");
