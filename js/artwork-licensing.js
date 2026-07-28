@@ -58,6 +58,220 @@
     }
   };
 
+  const artworkDescriptions = {
+    survival: "Endurance, resilience and the human spirit.",
+    "the-void-of-souls": "Collective consciousness, spiritual energy and the infinite.",
+    "the-heart-of-war": "Conflict, transformation and inner balance.",
+    solitude: "Reflection, stillness and the inner self.",
+    "human-spirits": "Shared memory and collective presence.",
+    "guardian-of-dreams": "Protection, ambition and becoming.",
+    "girl-child": "Patriarchy, resilience and survival.",
+    "cultural-identity": "Pattern, belonging and visual memory."
+  };
+
+  const requestedArtwork = new URLSearchParams(window.location.search).get("artwork");
+  const shopGrid = document.querySelector("[data-artwork-shop-grid]");
+
+  if (shopGrid) {
+    shopGrid.innerHTML = Object.entries(artworkOptions).map(([slug, artwork], index) => `
+      <article class="artwork-shop-card reveal${index % 3 === 1 ? " delay-1" : index % 3 === 2 ? " delay-2" : ""}${requestedArtwork === slug ? " is-selected" : ""}" id="shop-${slug}">
+        <figure class="artwork-shop-media protected-artwork-preview">
+          <img src="${artwork.image}" alt="${artwork.title} protected artwork preview" width="720" height="720" loading="lazy" decoding="async">
+        </figure>
+        <div class="artwork-shop-copy">
+          <p class="eyebrow">Digital Artwork · 2026</p>
+          <h3>${artwork.title}</h3>
+          <p>${artworkDescriptions[slug]}</p>
+          <p class="artwork-use-label">Available media</p>
+          <ul class="artwork-medium-list" aria-label="Available media for ${artwork.title}">
+            <li>Mockups</li>
+            <li>Print</li>
+            <li>Editorial</li>
+            <li>Digital</li>
+            <li>Textile</li>
+            <li>Fashion</li>
+          </ul>
+          <p class="artwork-use-note">Textile, fashion, merchandise and products for sale require an Extended licence.</p>
+          <dl class="artwork-shop-prices">
+            <div><dt>Personal collector file</dt><dd>$65 USD</dd></div>
+            <div><dt>Standard commercial licence</dt><dd>$325 USD</dd></div>
+          </dl>
+          <div class="artwork-shop-actions">
+            <a class="btn btn-primary" href="${artwork.personal}" aria-label="Buy the personal collector licence for ${artwork.title}">Collect — $65</a>
+            <a class="btn btn-secondary" href="${artwork.standard}" aria-label="Buy the standard commercial licence for ${artwork.title}">License — $325</a>
+          </div>
+          <a class="artwork-shop-extended" href="${artwork.extended}" aria-label="Buy the extended commercial licence for ${artwork.title}">Extended commercial licence — $1,250</a>
+          <a class="text-link" href="exhibition-catalogue.html#${slug}">Read artwork details</a>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  const showcase = document.querySelector("[data-artwork-showcase]");
+
+  if (showcase) {
+    const viewport = showcase.querySelector("[data-showcase-viewport]");
+    const track = showcase.querySelector("[data-showcase-track]");
+    const previousButton = showcase.querySelector("[data-showcase-prev]");
+    const nextButton = showcase.querySelector("[data-showcase-next]");
+    const dotsContainer = showcase.querySelector("[data-showcase-dots]");
+    const status = showcase.querySelector("[data-showcase-status]");
+    const originalSlides = Array.from(track.querySelectorAll("[data-showcase-slide]"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (originalSlides.length > 1) {
+      const makeClone = (slide) => {
+        const clone = slide.cloneNode(true);
+        clone.removeAttribute("data-showcase-slide");
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelector("img").alt = "";
+        return clone;
+      };
+
+      track.prepend(makeClone(originalSlides[originalSlides.length - 1]));
+      track.append(makeClone(originalSlides[0]));
+
+      const allSlides = Array.from(track.children);
+      const dots = originalSlides.map((slide, index) => {
+        const dot = document.createElement("button");
+        dot.className = "artwork-showcase-dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Show example ${index + 1} of ${originalSlides.length}`);
+        dot.addEventListener("click", () => goTo(index + 1, true));
+        dotsContainer.append(dot);
+        return dot;
+      });
+
+      let current = 1;
+      let autoTimer = null;
+      let pointerId = null;
+      let pointerStartX = 0;
+      let pointerStartY = 0;
+
+      const realIndex = () => (current - 1 + originalSlides.length) % originalSlides.length;
+
+      const render = (animate = true, announce = false) => {
+        if (!animate) track.style.transition = "none";
+        track.style.transform = `translate3d(-${current * 100}%,0,0)`;
+
+        const activeIndex = realIndex();
+        allSlides.forEach((slide, index) => slide.classList.toggle("is-active", index === current));
+        originalSlides.forEach((slide, index) => slide.setAttribute("aria-hidden", index === activeIndex ? "false" : "true"));
+        dots.forEach((dot, index) => dot.setAttribute("aria-current", index === activeIndex ? "true" : "false"));
+
+        if (announce) {
+          const label = originalSlides[activeIndex].querySelector("figcaption strong")?.textContent || "Artwork use example";
+          status.textContent = `Showing example ${activeIndex + 1} of ${originalSlides.length}: ${label}`;
+        }
+
+        if (!animate) {
+          requestAnimationFrame(() => {
+            track.style.transition = "";
+          });
+        }
+      };
+
+      const normalizeReducedMotionIndex = () => {
+        if (current === 0) current = originalSlides.length;
+        if (current === originalSlides.length + 1) current = 1;
+      };
+
+      function goTo(index, announce = false) {
+        current = index;
+        if (reducedMotion.matches) {
+          normalizeReducedMotionIndex();
+          render(false, announce);
+          return;
+        }
+        render(true, announce);
+      }
+
+      const move = (direction, announce = false) => goTo(current + direction, announce);
+
+      const stopAuto = () => {
+        window.clearInterval(autoTimer);
+        autoTimer = null;
+      };
+
+      const startAuto = () => {
+        stopAuto();
+        if (reducedMotion.matches || document.hidden) return;
+        autoTimer = window.setInterval(() => move(1), 5200);
+      };
+
+      const restartAuto = () => {
+        stopAuto();
+        startAuto();
+      };
+
+      previousButton.addEventListener("click", () => {
+        move(-1, true);
+        restartAuto();
+      });
+      nextButton.addEventListener("click", () => {
+        move(1, true);
+        restartAuto();
+      });
+
+      viewport.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        move(event.key === "ArrowLeft" ? -1 : 1, true);
+        restartAuto();
+      });
+
+      viewport.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+        pointerId = event.pointerId;
+        pointerStartX = event.clientX;
+        pointerStartY = event.clientY;
+        stopAuto();
+        viewport.setPointerCapture?.(event.pointerId);
+      });
+
+      viewport.addEventListener("pointerup", (event) => {
+        if (event.pointerId !== pointerId) return;
+        const distanceX = event.clientX - pointerStartX;
+        const distanceY = event.clientY - pointerStartY;
+        if (Math.abs(distanceX) > 42 && Math.abs(distanceX) > Math.abs(distanceY) * 1.15) {
+          move(distanceX > 0 ? -1 : 1, true);
+        }
+        pointerId = null;
+        restartAuto();
+      });
+
+      viewport.addEventListener("pointercancel", () => {
+        pointerId = null;
+        restartAuto();
+      });
+
+      track.addEventListener("transitionend", (event) => {
+        if (event.target !== track || event.propertyName !== "transform") return;
+        if (current === 0) {
+          current = originalSlides.length;
+          render(false);
+        } else if (current === originalSlides.length + 1) {
+          current = 1;
+          render(false);
+        }
+      });
+
+      showcase.addEventListener("pointerenter", stopAuto);
+      showcase.addEventListener("pointerleave", startAuto);
+      showcase.addEventListener("focusin", stopAuto);
+      showcase.addEventListener("focusout", () => {
+        window.setTimeout(() => {
+          if (!showcase.contains(document.activeElement)) startAuto();
+        }, 0);
+      });
+      document.addEventListener("visibilitychange", () => document.hidden ? stopAuto() : startAuto());
+      reducedMotion.addEventListener?.("change", startAuto);
+
+      render(false);
+      startAuto();
+    }
+  }
+
   const checkout = document.querySelector("[data-artwork-checkout]");
   if (!checkout) return;
 
@@ -71,7 +285,6 @@
     extended: "Extended Commercial"
   };
 
-  const requestedArtwork = new URLSearchParams(window.location.search).get("artwork");
   if (requestedArtwork && artworkOptions[requestedArtwork]) {
     select.value = requestedArtwork;
   }

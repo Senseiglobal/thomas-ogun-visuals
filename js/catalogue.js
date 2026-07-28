@@ -450,7 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         ${artwork.ar ? "" : `
           <div class="button-row">
-            <a class="btn btn-primary" href="artwork-licensing.html?artwork=${html(artwork.slug)}#licence-options">Buy or License This Artwork</a>
+            <a class="btn btn-primary" href="artwork-licensing.html?artwork=${html(artwork.slug)}#shop-artworks">Buy or License in Artwork Shop</a>
           </div>
         `}
       </div>
