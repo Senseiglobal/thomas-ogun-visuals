@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <li><a href="service-inquiry.html"${currentAttribute(currentFile === "service-inquiry.html")}>Services &amp; Inquiry</a></li>
             <li><a href="professional-practice.html"${currentAttribute(currentFile === "professional-practice.html")}>Professional Practice</a></li>
             <li><a href="press.html"${currentAttribute(currentFile === "press.html")}>Press &amp; Curators</a></li>
-            <li><a href="artwork-licensing.html"${currentAttribute(currentFile === "artwork-licensing.html")}>Pricing &amp; Permissions</a></li>
+            <li><a href="artwork-licensing.html"${currentAttribute(currentFile === "artwork-licensing.html")}>Artwork Shop</a></li>
           </ul>
         </details>
       </li>
@@ -132,8 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const list = navigateHeading?.nextElementSibling;
       if (!list) return;
 
-      const licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
+      let licensingItem = list.querySelector('a[href="artwork-licensing.html"]')?.closest("li");
       const contactItem = list.querySelector('a[href="contact.html"]')?.closest("li");
+
+      if (licensingItem) {
+        licensingItem.querySelector("a").textContent = "Artwork Shop";
+      } else {
+        licensingItem = document.createElement("li");
+        licensingItem.innerHTML = '<a href="artwork-licensing.html">Artwork Shop</a>';
+        list.insertBefore(licensingItem, contactItem || null);
+      }
 
       if (!list.querySelector('a[href="press.html"]')) {
         const pressItem = document.createElement("li");
@@ -193,9 +201,9 @@ document.addEventListener("DOMContentLoaded", () => {
       text: "Museum-style catalogue with chapters, artwork entries, AR documentation, curatorial essay and checklist."
     },
     {
-      title: "Artwork Licensing",
+      title: "Artwork Shop",
       url: "artwork-licensing.html",
-      text: "USD licensing options, permitted uses, high-resolution delivery and artwork usage restrictions."
+      text: "Artwork previews, USD prices, secure collector and commercial licence checkout, plus both downloadable AR experiences."
     },
     {
       title: "Aura Manager",
@@ -284,9 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       keys: ["license", "licence", "licensing", "permission", "buy art", "purchase artwork", "download", "commercial use", "personal use"],
-      reply: "Artwork purchases use clear written permissions. Personal, publishing and commercial licences are separated so you can choose the rights that match your intended use before secure Stripe checkout.",
+      reply: "The Artwork Shop keeps every artwork, price and purchase option together. Personal collector files and commercial licences have separate secure checkout buttons, and both AR experiences can be downloaded from the same page.",
       url: "artwork-licensing.html",
-      cta: "View Pricing & Permissions"
+      cta: "Open Artwork Shop"
     },
     {
       keys: ["pencil", "graphite", "traditional art", "sketch", "drawing"],
@@ -412,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <button type="button" data-prompt="Show me the exhibition">Exhibition</button>
           <button type="button" data-prompt="What services are available?">Services</button>
           <button type="button" data-prompt="How do I book the 60-minute consultation?">Book a Consultation</button>
-          <button type="button" data-prompt="How does artwork licensing work?">Artwork Licensing</button>
+          <button type="button" data-prompt="How do I buy or license an artwork?">Artwork Shop</button>
         </div>
         <form class="assistant-form" data-assistant-form>
           <label class="sr-only" for="assistant-input">Ask the concierge</label>
