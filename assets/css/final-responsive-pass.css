@@ -98,7 +98,8 @@ body[data-page="artwork-licensing"] .licensing-custom-callout{border:0!important
 @media(max-width:640px){body[data-page="artwork-licensing"] .licensing-callout-title{font-size:clamp(1.45rem,6.8vw,1.85rem);}}
 body[data-page="exhibition"] .exhibition-register-section .inline-register-form{min-width:0;width:100%;}
 body[data-page="exhibition"] .exhibition-register-section{background:var(--brand-plum);border-bottom:1px solid var(--line);}
-body[data-page="exhibition"] .exhibition-catalogue-section .callout{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0;}
+body[data-page="exhibition"] .exhibition-catalogue-section .callout{background:transparent;border:0;border-radius:0;box-shadow:none;display:block;padding:0;}
+body[data-page="exhibition"] .exhibition-catalogue-section .button-row{justify-content:flex-start;margin-top:clamp(1.25rem,2.5vw,1.75rem);}
 @media(max-width:640px){body[data-page="exhibition"] .exhibition-register-section .callout{gap:1.5rem;padding:clamp(1.25rem,5vw,1.75rem);}body[data-page="exhibition"] .exhibition-register-section .inline-register-form{gap:.75rem;}body[data-page="exhibition"] .exhibition-register-section .inline-register-form :is(input,.btn){width:100%;}body[data-page="exhibition"] .exhibition-register-section .form-status{line-height:1.45;margin:.15rem 0 0;}}
 @media(max-width:640px){body[data-page="exhibition"] .exhibition-register-section{padding-block:clamp(2.5rem,10vw,4rem);}}
 @media(min-width:961px){body[data-page="professional-practice"] .research-foundation-copy{margin-inline:auto;text-align:center;}body[data-page="professional-practice"] .research-foundation-copy :is(h3,p:not(.eyebrow)){margin-inline:auto;}}
@@ -155,9 +156,12 @@ body[data-page="artwork-licensing"] .ar-download-actions .btn{font-size:.85rem;m
 body[data-page="artwork-licensing"] .ar-install-note{background:color-mix(in srgb,var(--brand-gold) 12%,transparent);border-left:4px solid var(--brand-gold);font-size:.9rem;margin:clamp(1.5rem,3vw,2.5rem) 0 0;padding:1rem 1.15rem;}
 body[data-page="exhibition"] .exhibition-shop-callout{align-items:center;background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;display:grid;gap:clamp(1.5rem,5vw,4rem);grid-template-columns:minmax(0,1fr) auto;padding:clamp(1.4rem,4vw,3rem);}
 body[data-page="exhibition"] .exhibition-shop-callout h2{font-size:clamp(1.8rem,4vw,3.8rem);margin:0 0 .75rem;max-width:14ch;}
+body[data-page="exhibition"] .exhibition-shop-title{max-width:none!important;}
+body[data-page="exhibition"] .exhibition-shop-title span{display:block;white-space:nowrap;}
 body[data-page="exhibition"] .exhibition-shop-callout p:not(.eyebrow){margin:0;max-width:62ch;}
 @media(max-width:1200px){body[data-page="artwork-licensing"] .artwork-shop-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
 @media(max-width:900px){body[data-page="artwork-licensing"] .artwork-shop-grid{grid-template-columns:repeat(2,minmax(0,1fr));}body[data-page="exhibition"] .exhibition-shop-callout{grid-template-columns:minmax(0,1fr);}body[data-page="exhibition"] .exhibition-shop-callout .button-row{justify-content:start;}}
+@media(max-width:700px){body[data-page="exhibition"] .exhibition-shop-title{font-size:clamp(1.65rem,7.5vw,2.2rem)!important;}}
 @media(max-width:700px){body[data-page="artwork-licensing"] .artwork-shop-grid,body[data-page="artwork-licensing"] .artwork-use-guide,body[data-page="artwork-licensing"] .ar-download-grid,body[data-page="artwork-licensing"] .ar-download-steps{grid-template-columns:minmax(0,1fr);}body[data-page="artwork-licensing"] .ar-download-actions{grid-template-columns:minmax(0,1fr);}body[data-page="artwork-licensing"] .artwork-shop-copy{padding:1.15rem;}body[data-page="artwork-licensing"] .artwork-shop-hero .button-row{grid-template-columns:minmax(0,1fr);}body[data-page="artwork-licensing"] .ar-download-title{font-size:clamp(1.65rem,7.5vw,2.2rem)!important;max-width:none!important;}body[data-page="artwork-licensing"] .ar-download-title span{display:block;white-space:nowrap;}body[data-page="artwork-licensing"] .licence-comparison-title{font-size:clamp(1.5rem,6.5vw,2rem)!important;max-width:none!important;white-space:nowrap;}}
 /* Artwork Shop use showcase: swipeable, looping and motion-aware. */
 body[data-page="artwork-licensing"] .artwork-showcase-section{background:var(--bg-soft);border-block:1px solid var(--line);overflow:hidden;}
