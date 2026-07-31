@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navMenu.innerHTML = `
       <li><a href="index.html"${currentAttribute(currentFile === "index.html")}>Home</a></li>
       <li><a href="about.html"${currentAttribute(currentFile === "about.html")}>About</a></li>
-      <li><a href="portfolio.html"${workPages.has(currentFile) ? ' class="is-section-current"' : ""}${currentAttribute(currentFile === "portfolio.html")}>Work</a></li>
+      <li><a href="portfolio.html"${workPages.has(currentFile) ? ' class="is-section-current"' : ""}${currentAttribute(currentFile === "portfolio.html")}>Portfolio</a></li>
       <li><a href="exhibition.html"${exhibitionPages.has(currentFile) ? ' class="is-section-current"' : ""}${currentAttribute(currentFile === "exhibition.html")}>Exhibition</a></li>
       <li class="nav-more-item">
         <details class="nav-dropdown">
