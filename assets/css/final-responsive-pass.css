@@ -190,3 +190,63 @@ body[data-page="artwork-licensing"] .artwork-showcase-dot[aria-current="true"]{b
 body[data-page="artwork-licensing"] .artwork-showcase-dot:focus-visible{outline:2px solid var(--brand-cream);outline-offset:4px;}
 @media(max-width:760px){body[data-page="artwork-licensing"] .artwork-showcase-heading{align-items:start;grid-template-columns:1fr;}body[data-page="artwork-licensing"] .artwork-showcase-heading h2{font-size:clamp(2rem,9vw,3rem);max-width:11ch;}body[data-page="artwork-licensing"] .artwork-showcase-slide{aspect-ratio:4/5;}body[data-page="artwork-licensing"] .artwork-showcase-slide img{object-fit:cover;}body[data-page="artwork-licensing"] .artwork-showcase-controls{gap:.65rem;}body[data-page="artwork-licensing"] .artwork-showcase-arrow{height:44px;width:44px;}}
 @media(prefers-reduced-motion:reduce){body[data-page="artwork-licensing"] .artwork-showcase-track,body[data-page="artwork-licensing"] .artwork-showcase-slide img,body[data-page="artwork-licensing"] .artwork-showcase-slide figcaption,body[data-page="artwork-licensing"] .artwork-showcase-arrow,body[data-page="artwork-licensing"] .artwork-showcase-dot{transition:none!important;}}
+
+/* Identity & Spirituality: editorial studio journal. */
+body[data-page="exhibition"] .exhibition-process-archive{background:var(--brand-plum);border-block:1px solid var(--line);color:var(--brand-cream);}
+body[data-page="exhibition"] .process-journal{--journal-space:clamp(5rem,11vw,10rem);}
+body[data-page="exhibition"] .exhibition-process-heading{display:grid;gap:clamp(.8rem,1.6vw,1.25rem);margin:0 0 clamp(2rem,5vw,4rem);max-width:920px;}
+body[data-page="exhibition"] .exhibition-process-heading :is(h2,p){margin:0;}
+body[data-page="exhibition"] .exhibition-process-heading h2{font-size:clamp(2.5rem,6vw,5.6rem);letter-spacing:-.055em;line-height:.94;}
+body[data-page="exhibition"] .exhibition-process-heading>p:last-child{color:var(--muted);font-size:clamp(1rem,1.45vw,1.2rem);line-height:1.65;max-width:58ch;}
+body[data-page="exhibition"] .process-title-line{display:block;white-space:nowrap;}
+body[data-page="exhibition"] .process-index{border-block:1px solid var(--line);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:var(--journal-space);}
+body[data-page="exhibition"] .process-index a{color:var(--brand-cream);display:grid;font-size:.75rem;font-weight:800;gap:.45rem;letter-spacing:.08em;padding:1rem .5rem;text-decoration:none;text-transform:uppercase;}
+body[data-page="exhibition"] .process-index a+a{border-left:1px solid var(--line);}
+body[data-page="exhibition"] .process-index a span{color:var(--brand-lavender);font-size:.66rem;}
+body[data-page="exhibition"] .process-index a:hover,body[data-page="exhibition"] .process-index a:focus-visible{background:var(--brand-plum-soft);color:var(--brand-gold);}
+body[data-page="exhibition"] .process-chapter{scroll-margin-top:7rem;}
+body[data-page="exhibition"] .process-chapter+.process-chapter,body[data-page="exhibition"] .process-research-lines+.process-chapter{margin-top:var(--journal-space);}
+body[data-page="exhibition"] .process-chapter--opening{min-height:clamp(18rem,35vw,32rem);padding-top:clamp(1rem,4vw,4rem);}
+body[data-page="exhibition"] .process-chapter-copy{display:grid;gap:.8rem;max-width:720px;}
+body[data-page="exhibition"] .process-chapter-copy :is(h3,p){margin:0;}
+body[data-page="exhibition"] .process-chapter-number{color:var(--brand-lavender);font-size:.7rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;}
+body[data-page="exhibition"] .process-chapter-copy h3{font-size:clamp(2.1rem,4.4vw,4.4rem);letter-spacing:-.045em;line-height:.99;}
+body[data-page="exhibition"] .process-chapter-copy>p:last-child{color:var(--muted);font-size:clamp(.98rem,1.35vw,1.12rem);line-height:1.65;max-width:56ch;}
+body[data-page="exhibition"] .process-chapter--feature{align-items:start;display:grid;gap:clamp(2rem,6vw,6rem);grid-template-columns:minmax(260px,.75fr) minmax(0,1.25fr);}
+body[data-page="exhibition"] .process-journal-figure{margin:0;min-width:0;}
+body[data-page="exhibition"] .process-journal-figure>a{background:#0d0910;display:block;overflow:hidden;}
+body[data-page="exhibition"] .process-journal-figure img{display:block;height:100%;object-fit:cover;transition:transform 520ms cubic-bezier(.2,.7,.2,1);width:100%;}
+body[data-page="exhibition"] .process-journal-figure:hover img{transform:scale(1.018);}
+body[data-page="exhibition"] .process-journal-figure--paper>a{background:#eeeae2;}
+body[data-page="exhibition"] .process-journal-figure--paper img{object-fit:contain;}
+body[data-page="exhibition"] .process-journal-figure figcaption{color:var(--muted);font-size:.76rem;line-height:1.45;padding-top:.7rem;}
+body[data-page="exhibition"] .process-journal-figure figcaption span{color:var(--brand-lavender);font-size:.64rem;font-weight:900;letter-spacing:.1em;margin-right:.65rem;text-transform:uppercase;}
+body[data-page="exhibition"] .process-journal-figure--hero>a{aspect-ratio:4/5;}
+body[data-page="exhibition"] .process-research-lines{border-top:1px solid var(--line);margin:var(--journal-space) 0 0;}
+body[data-page="exhibition"] .process-research-lines>.eyebrow{margin:0;padding:1.25rem 0;}
+body[data-page="exhibition"] .process-line{align-items:baseline;border-top:1px solid var(--line);display:grid;gap:1.25rem;grid-template-columns:minmax(150px,.35fr) minmax(0,.65fr);padding:clamp(1rem,2vw,1.5rem) 0;}
+body[data-page="exhibition"] .process-line strong{font-size:clamp(1rem,1.5vw,1.25rem);}
+body[data-page="exhibition"] .process-line span{color:var(--muted);font-size:.88rem;line-height:1.55;}
+body[data-page="exhibition"] .process-journal-grid{display:grid;gap:clamp(1rem,2vw,1.6rem);margin-top:clamp(2rem,5vw,4rem);}
+body[data-page="exhibition"] .process-journal-grid--drawing{align-items:start;grid-template-columns:1.35fr .85fr .85fr;}
+body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure>a{aspect-ratio:4/5;}
+body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure--large>a{aspect-ratio:3/4;}
+body[data-page="exhibition"] .process-pattern-strip{display:grid;gap:clamp(1rem,2vw,1.5rem);grid-auto-columns:minmax(230px,28vw);grid-auto-flow:column;margin:clamp(2rem,5vw,4rem) calc(50% - 50vw) 0;overflow-x:auto;overscroll-behavior-inline:contain;padding:0 max(1rem,calc((100vw - min(100% - 2rem,1200px))/2)) 1.25rem;scroll-snap-type:inline proximity;scrollbar-color:var(--brand-lavender) transparent;}
+body[data-page="exhibition"] .process-pattern-strip .process-journal-figure{scroll-snap-align:start;}
+body[data-page="exhibition"] .process-pattern-strip .process-journal-figure>a{aspect-ratio:4/5;}
+body[data-page="exhibition"] .process-pattern-strip .process-journal-figure:nth-child(-n+2){grid-column:span 1;}
+body[data-page="exhibition"] .process-chapter--bridge{border-block:1px solid var(--line);display:grid;gap:clamp(1.25rem,3vw,3rem);grid-template-columns:minmax(0,1fr) auto;padding:clamp(3rem,7vw,6rem) 0;}
+body[data-page="exhibition"] .process-mediums{align-items:center;display:flex;flex-wrap:nowrap;gap:.4rem;justify-content:flex-end;margin:0;max-width:none;min-width:0;overflow-x:auto;padding-bottom:.25rem;scrollbar-width:none;white-space:nowrap;}
+body[data-page="exhibition"] .process-mediums::-webkit-scrollbar{display:none;}
+body[data-page="exhibition"] .process-mediums span{border:1px solid var(--line);border-radius:999px;color:var(--muted);flex:0 0 auto;font-size:.62rem;font-weight:800;letter-spacing:.075em;padding:.58rem .7rem;text-transform:uppercase;}
+body[data-page="exhibition"] .process-journal-grid--encounter{align-items:start;grid-template-columns:.8fr 1.2fr;}
+body[data-page="exhibition"] .process-journal-grid--encounter .process-journal-figure>a{aspect-ratio:auto;}
+body[data-page="exhibition"] .process-journal-grid--encounter .process-journal-figure--large>a{aspect-ratio:auto;}
+body[data-page="exhibition"] .process-evidence-note{border-block:1px solid var(--line);font-size:.82rem;line-height:1.65;margin-top:var(--journal-space);max-width:820px;padding:1rem 0;}
+body[data-page="exhibition"] .process-evidence-note summary{color:var(--brand-cream);cursor:pointer;font-weight:800;letter-spacing:.04em;}
+body[data-page="exhibition"] .process-evidence-note p{color:var(--muted);margin:.8rem 0 0;}
+body[data-page="exhibition"] .exhibition-artist-statement .text-stack.narrow>h2{max-width:18ch;white-space:normal;}
+@media(min-width:901px){body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure>a{aspect-ratio:auto;height:clamp(22rem,43vw,34rem);}body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure--large>a{aspect-ratio:auto;}body[data-page="exhibition"] .process-journal-grid--encounter .process-journal-figure>a{height:clamp(28rem,58vw,42rem);}}
+@media(max-width:900px){body[data-page="exhibition"] .process-index{grid-template-columns:repeat(3,minmax(0,1fr));}body[data-page="exhibition"] .process-index a:nth-child(4){border-left:0;}body[data-page="exhibition"] .process-index a:nth-child(n+4){border-top:1px solid var(--line);}body[data-page="exhibition"] .process-chapter--feature{align-items:start;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);}body[data-page="exhibition"] .process-journal-grid--drawing{grid-template-columns:repeat(2,minmax(0,1fr));}body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure--large{grid-column:1/-1;}body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure--large>a{aspect-ratio:16/10;}body[data-page="exhibition"] .process-chapter--bridge{grid-template-columns:minmax(0,1fr);}body[data-page="exhibition"] .process-mediums{justify-content:flex-start;}}
+@media(max-width:620px){body[data-page="exhibition"] .process-journal{--journal-space:4.5rem;}body[data-page="exhibition"] .exhibition-process-heading h2{font-size:clamp(2rem,9.4vw,2.75rem);}body[data-page="exhibition"] .process-index{grid-template-columns:repeat(2,minmax(0,1fr));}body[data-page="exhibition"] .process-index a:nth-child(odd){border-left:0;}body[data-page="exhibition"] .process-index a:nth-child(n+3){border-top:1px solid var(--line);}body[data-page="exhibition"] .process-index a:nth-child(4){border-left:1px solid var(--line);}body[data-page="exhibition"] .process-chapter--opening{min-height:15rem;}body[data-page="exhibition"] .process-chapter-copy h3{font-size:clamp(1.8rem,9vw,2.55rem);}body[data-page="exhibition"] .process-chapter--feature,body[data-page="exhibition"] .process-journal-grid--drawing,body[data-page="exhibition"] .process-journal-grid--encounter,body[data-page="exhibition"] .process-line{grid-template-columns:minmax(0,1fr);}body[data-page="exhibition"] .process-chapter--feature .process-chapter-copy{order:0;}body[data-page="exhibition"] .process-chapter--feature .process-journal-figure{order:1;}body[data-page="exhibition"] .process-line{gap:.4rem;}body[data-page="exhibition"] .process-journal-grid--drawing .process-journal-figure--large>a,body[data-page="exhibition"] .process-journal-grid--encounter .process-journal-figure--large>a{aspect-ratio:4/5;}body[data-page="exhibition"] .process-pattern-strip{grid-auto-columns:minmax(230px,80vw);}body[data-page="exhibition"] .process-title-line{white-space:nowrap;}}
+@media(prefers-reduced-motion:reduce){body[data-page="exhibition"] .process-journal-figure img{transition:none!important;}body[data-page="exhibition"] .process-pattern-strip{scroll-behavior:auto;}}
