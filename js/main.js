@@ -606,7 +606,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("https://formsubmit.co/ajax/bookings@thomasogunvisuals.com", {
+        const response = await fetch("https://formsubmit.co/ajax/contact@thomasogunvisuals.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -636,7 +636,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submitButton) submitButton.textContent = "Registered";
       } catch (error) {
         if (statusMessage) {
-          statusMessage.textContent = "We could not send your registration. Please try again or email bookings@thomasogunvisuals.com.";
+          statusMessage.textContent = "We could not send your registration. Please try again or email contact@thomasogunvisuals.com.";
           statusMessage.classList.remove("is-active", "is-success");
           statusMessage.classList.add("is-error");
         }
@@ -679,7 +679,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       try {
-        const response = await fetch("https://formsubmit.co/ajax/bookings@thomasogunvisuals.com", {
+        const response = await fetch("https://formsubmit.co/ajax/contact@thomasogunvisuals.com", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -712,7 +712,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submitButton) submitButton.textContent = "Message Sent";
       } catch (error) {
         if (statusMessage) {
-          statusMessage.textContent = "We could not send your enquiry. Please try again or email bookings@thomasogunvisuals.com.";
+          statusMessage.textContent = "We could not send your enquiry. Please try again or email contact@thomasogunvisuals.com.";
           statusMessage.classList.remove("is-sending", "is-success");
           statusMessage.classList.add("is-error");
         }

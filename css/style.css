@@ -3723,6 +3723,354 @@ label {
   min-height: 150px;
 }
 
+.pencil-context-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(32px, 6vw, 84px);
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+}
+
+.pencil-context-copy {
+  max-width: 760px;
+}
+
+.pencil-context-copy h2 {
+  font-size: clamp(1.8rem, 4.2vw, 3.5rem);
+  line-height: 1.03;
+  max-width: none;
+}
+
+.pencil-context-copy h2 .pencil-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.pencil-context-note {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.pencil-context-note ul {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pencil-context-note li {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 5px;
+  padding: 15px 0;
+}
+
+.pencil-context-note li strong {
+  font-size: 1rem;
+}
+
+.pencil-context-note li span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.pencil-directory-header {
+  align-items: end;
+  display: grid;
+  gap: clamp(28px, 6vw, 86px);
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+}
+
+.pencil-directory-intro {
+  max-width: 560px;
+}
+
+.pencil-directory-intro h1 {
+  font-size: clamp(2rem, 4.6vw, 4.2rem);
+  letter-spacing: 0.035em;
+  line-height: 0.98;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+}
+
+.pencil-directory-intro .lead {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-width: 48ch;
+}
+
+.pencil-directory-search {
+  margin: 0 0 5px;
+}
+
+.pencil-directory-search > label {
+  color: var(--muted);
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.pencil-search-field {
+  align-items: center;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  display: flex;
+  gap: 11px;
+  min-height: 46px;
+  padding: 0 0 2px;
+  transition: border-color 180ms ease;
+}
+
+.pencil-search-field:focus-within {
+  border-bottom-color: currentColor;
+}
+
+.pencil-search-icon {
+  color: currentColor;
+  display: inline-flex;
+  flex: 0 0 auto;
+  opacity: 0.64;
+}
+
+.pencil-search-icon svg {
+  fill: none;
+  height: 16px;
+  line-height: 1;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.7;
+  width: 16px;
+}
+
+.pencil-search-field input {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.94rem;
+  min-width: 0;
+  outline: 0;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.pencil-search-field input::placeholder {
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+.pencil-directory-search > p {
+  color: var(--muted);
+  font-size: 0.74rem;
+  margin: 10px 0 0;
+}
+
+.pencil-evidence-section {
+  background: var(--brand-cream);
+  color: var(--ink);
+}
+
+.pencil-evidence-heading {
+  max-width: 760px;
+}
+
+.pencil-evidence-heading h2 {
+  font-size: clamp(1.5rem, 4.2vw, 3.5rem);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.pencil-evidence-heading :where(h2, p) {
+  color: inherit;
+}
+
+.pencil-evidence-grid {
+  display: grid;
+  gap: clamp(24px, 3.2vw, 42px) clamp(18px, 2vw, 30px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pencil-evidence-item,
+.pencil-evidence-item--wide,
+.pencil-evidence-item--tall,
+.pencil-evidence-item--feature {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  display: block;
+  margin: 0;
+  min-width: 0;
+  overflow: visible;
+}
+
+.pencil-evidence-item img {
+  aspect-ratio: 1;
+  background: #f2f0eb;
+  border: 1px solid rgba(23, 24, 28, 0.1);
+  display: block;
+  height: auto;
+  object-fit: contain;
+  transition: transform 350ms ease;
+  width: 100%;
+}
+
+.pencil-evidence-item figcaption {
+  color: var(--muted);
+  line-height: 1.35;
+  min-height: 55px;
+  padding: 12px 0 0;
+}
+
+.pencil-evidence-item figcaption span {
+  color: var(--muted);
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 5px;
+}
+
+.pencil-evidence-item figcaption h3 {
+  color: var(--ink);
+  display: -webkit-box;
+  font-size: clamp(0.76rem, 0.95vw, 0.9rem);
+  font-weight: 700;
+  line-height: 1.22;
+  margin: 0;
+  max-height: 2.44em;
+  overflow: hidden;
+  text-wrap: balance;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.pencil-evidence-item[hidden] {
+  display: none;
+}
+
+@media (hover: hover) {
+  .pencil-evidence-item:hover img {
+    transform: translateY(-3px);
+  }
+}
+
+body[data-page="traditional-pencil-art"] .pencil-directory-header {
+  max-width: 920px;
+  padding-bottom: clamp(40px, 5vw, 64px);
+  padding-top: clamp(64px, 8vw, 104px);
+}
+
+body[data-page="traditional-pencil-art"] .pencil-directory-intro :where(.eyebrow, h1, .lead),
+body[data-page="traditional-pencil-art"] .pencil-directory-search :where(label, p) {
+  color: var(--ink);
+}
+
+body[data-page="traditional-pencil-art"] .pencil-evidence-section > .shell {
+  max-width: 920px;
+}
+
+body[data-page="traditional-pencil-art"] .pencil-evidence-item figcaption span {
+  color: #2b1738 !important;
+  font-weight: 900;
+}
+
+body[data-page="traditional-pencil-art"] .pencil-evidence-item figcaption h3 {
+  color: #2b1738 !important;
+  display: -webkit-box !important;
+}
+
+body[data-page="traditional-pencil-art"] .pencil-search-field {
+  color: #2b1738;
+}
+
+body[data-page="traditional-pencil-art"] .pencil-search-field input {
+  color: #2b1738;
+}
+
+body[data-page="traditional-pencil-art"] .artwork-protection-note {
+  margin-top: clamp(42px, 6vw, 72px);
+}
+
+html[data-theme="dark"] body[data-page="traditional-pencil-art"] .pencil-evidence-section {
+  background: #21152b;
+  color: #fff4df;
+}
+
+html[data-theme="dark"] body[data-page="traditional-pencil-art"] .pencil-evidence-heading :where(.eyebrow, h2, p) {
+  color: #fff4df !important;
+}
+
+html[data-theme="dark"] body[data-page="traditional-pencil-art"] .pencil-evidence-item figcaption span {
+  color: #f1c96b !important;
+}
+
+html[data-theme="dark"] body[data-page="traditional-pencil-art"] .pencil-evidence-item figcaption h3 {
+  color: #fff4df !important;
+}
+
+html[data-theme="dark"] body[data-page="traditional-pencil-art"] .pencil-search-field {
+  color: #fff4df;
+}
+
+html[data-theme="dark"] body[data-page="traditional-pencil-art"] .pencil-search-field input {
+  color: #fff4df;
+}
+
+.exhibition-physical-section {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.exhibition-physical-heading {
+  margin-bottom: clamp(32px, 5vw, 56px);
+  max-width: none;
+}
+
+.exhibition-physical-section > .shell {
+  max-width: 920px;
+}
+
+.exhibition-physical-grid {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px) clamp(18px, 2.4vw, 30px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.exhibition-physical-item {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+.exhibition-physical-item img {
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  display: block;
+  height: auto;
+  object-fit: cover;
+  transition: transform 350ms ease;
+  width: 100%;
+}
+
+.exhibition-physical-item figcaption {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  min-height: 0;
+  padding: 12px 0 0;
+}
+
+@media (hover: hover) {
+  .exhibition-physical-item:hover img {
+    transform: scale(1.025);
+  }
+}
+
 .reflection-questions {
   background: var(--white);
   border: 1px solid var(--line);
@@ -5562,6 +5910,45 @@ html[data-theme="dark"] .aura-proof-card:hover {
 
 .campaign-gallery-section .campaign-section-heading p:last-child {
   color: rgba(255, 250, 241, 0.72);
+}
+
+.campaign-proof-grid {
+  display: grid;
+  gap: clamp(14px, 1.8vw, 22px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.campaign-proof-card {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.campaign-proof-card img {
+  aspect-ratio: 4 / 3;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  transition: transform 450ms ease;
+  width: 100%;
+}
+
+.campaign-proof-card--portrait img {
+  aspect-ratio: 4 / 5;
+}
+
+.campaign-proof-card:hover img {
+  transform: scale(1.025);
+}
+
+.campaign-proof-card figcaption {
+  color: rgba(255, 250, 241, 0.86);
+  font-size: 0.76rem;
+  line-height: 1.45;
+  min-height: 62px;
+  padding: 13px 14px 15px;
 }
 
 .campaign-still-grid {

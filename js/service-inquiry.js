@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
     delete payload.website;
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/bookings@thomasogunvisuals.com", {
+      const response = await fetch("https://formsubmit.co/ajax/contact@thomasogunvisuals.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset();
     } catch (error) {
       if (status) {
-        status.textContent = "We could not send your brief. Please try again, or email bookings@thomasogunvisuals.com.";
+        status.textContent = "We could not send your brief. Please try again, or email contact@thomasogunvisuals.com.";
         status.classList.remove("is-sending");
         status.classList.add("is-error");
       }
