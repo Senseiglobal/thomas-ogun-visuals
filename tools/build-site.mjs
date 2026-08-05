@@ -9,7 +9,7 @@ fs.rmSync(outputDir, { recursive: true, force: true });
 fs.mkdirSync(outputDir, { recursive: true });
 
 for (const entry of fs.readdirSync(projectRoot, { withFileTypes: true })) {
-  if ([".git", "dist", "node_modules"].includes(entry.name)) continue;
+  if ([".git", "dist", "node_modules", "artifacts"].includes(entry.name)) continue;
   fs.cpSync(
     path.join(projectRoot, entry.name),
     path.join(outputDir, entry.name),
