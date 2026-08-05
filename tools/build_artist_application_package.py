@@ -686,7 +686,7 @@ def build_portfolio(images: list[Path]) -> Path:
     image_w = (content_w - 2 * gap) / 3
     gallery_images = [
         (GALLERY_ROOT / "artboard-02.webp", "Installation wall"),
-        (GALLERY_ROOT / "artboard-03.webp", "Exhibition interpretation"),
+        (GALLERY_ROOT / "exhibition-interpretation-2026.jpeg", "Exhibition interpretation"),
         (GALLERY_ROOT / "artboard-17.webp", "Visitor encounter"),
     ]
     for index, (path, caption) in enumerate(gallery_images):
