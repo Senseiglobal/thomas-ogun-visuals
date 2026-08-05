@@ -82,6 +82,7 @@
           <p class="eyebrow">Digital Artwork · 2026</p>
           <h3>${artwork.title}</h3>
           <p>${artworkDescriptions[slug]}</p>
+          <p class="artwork-gallery-meta">2026 - Digital illustration - 30.5 x 30.5 cm (12 x 12 in) - Matte-framed print - Edition and availability: enquire with studio</p>
           <p class="artwork-use-label">Available media</p>
           <ul class="artwork-medium-list" aria-label="Available media for ${artwork.title}">
             <li>Mockups</li>

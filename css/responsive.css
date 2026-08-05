@@ -1479,6 +1479,10 @@ h3 {
   .campaign-still-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .campaign-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 680px) {
@@ -1527,6 +1531,10 @@ h3 {
   }
 
   .campaign-still-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .campaign-proof-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -1753,5 +1761,61 @@ h3 {
   .artwork-checkout-controls {
     min-width: 0;
     padding: clamp(24px, 5vw, 44px);
+  }
+}
+
+@media (max-width: 980px) {
+  .pencil-directory-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pencil-context-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pencil-evidence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .exhibition-physical-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-page="traditional-pencil-art"] .pencil-evidence-heading h2 {
+    font-size: clamp(1.35rem, 8vw, 2.2rem);
+    letter-spacing: -0.035em;
+  }
+}
+
+@media (max-width: 560px) {
+  .pencil-evidence-grid {
+    gap: 24px 14px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pencil-evidence-item--feature,
+  .pencil-evidence-item--tall,
+  .pencil-evidence-item--wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .exhibition-physical-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .pencil-evidence-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pencil-evidence-item--feature,
+  .pencil-evidence-item--tall,
+  .pencil-evidence-item--wide {
+    grid-column: span 1;
+    grid-row: span 1;
   }
 }
