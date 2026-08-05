@@ -4,6 +4,7 @@
 work/
 outputs/
 dist/
+artifacts/
 
 # Private high-resolution artwork masters and purchased clean files
 .private-artwork-assets/
