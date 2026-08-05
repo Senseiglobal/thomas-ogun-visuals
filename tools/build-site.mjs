@@ -4,6 +4,9 @@ import { fileURLToPath } from "node:url";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDir = path.join(projectRoot, "dist");
+const excludedFiles = new Set([
+  "assets/exhibition/identity-spirituality/process/the-gods-eyes-process.mp4",
+]);
 
 fs.rmSync(outputDir, { recursive: true, force: true });
 fs.mkdirSync(outputDir, { recursive: true });
@@ -13,7 +16,13 @@ for (const entry of fs.readdirSync(projectRoot, { withFileTypes: true })) {
   fs.cpSync(
     path.join(projectRoot, entry.name),
     path.join(outputDir, entry.name),
-    { recursive: true },
+    {
+      recursive: true,
+      filter(source) {
+        const relative = path.relative(projectRoot, source).split(path.sep).join("/");
+        return !excludedFiles.has(relative);
+      },
+    },
   );
 }
 

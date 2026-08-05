@@ -78,9 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
         soundDesign: "Layered ambient voices and spiritual textures.",
         stack: ["Unity", "Vuforia", "Suno", "Visual Studio Code", "OpenAI Codex"],
         processVideo: {
-          src: "assets/exhibition/identity-spirituality/process/the-gods-eyes-process.mp4",
-          label: "The Gods Eyes Process",
-          note: "Process footage from artwork to AR setup."
+          src: "assets/videos/exhibition/the-gods-eyes-ar-demo.mp4",
+          label: "The Gods Eyes AR Demo",
+          note: "AR interaction demonstration from the Identity and Spirituality exhibition."
         },
         apk: {
           version: "v0.1.1",
@@ -524,8 +524,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>From artwork development to mixed reality setup.</p>
           </div>
           <figure class="ar-process-video">
-            <video src="assets/exhibition/identity-spirituality/process/the-gods-eyes-process.mp4" controls preload="metadata"></video>
-            <figcaption>The Gods Eyes Process<span>Artwork development and AR preparation footage.</span></figcaption>
+            <video src="assets/videos/exhibition/the-gods-eyes-ar-demo.mp4" controls preload="metadata"></video>
+            <figcaption>The Gods Eyes AR Demo<span>AR interaction demonstration from the Identity and Spirituality exhibition.</span></figcaption>
           </figure>
         </article>
         <div class="process-placeholder-grid">
