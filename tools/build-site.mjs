@@ -6,6 +6,11 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "
 const outputDir = path.join(projectRoot, "dist");
 const excludedFiles = new Set([
   "assets/exhibition/identity-spirituality/process/the-gods-eyes-process.mp4",
+  "assets/images/aura-manager-hero.png",
+  "assets/images/aura-manager-thomas-desktop.png",
+  "assets/images/home/identity-spirituality-banner.png",
+  "assets/images/identity-spirituality-banner.png",
+  "assets/images/thomas-ogun-portrait-hero.png",
 ]);
 
 fs.rmSync(outputDir, { recursive: true, force: true });
@@ -20,7 +25,11 @@ for (const entry of fs.readdirSync(projectRoot, { withFileTypes: true })) {
       recursive: true,
       filter(source) {
         const relative = path.relative(projectRoot, source).split(path.sep).join("/");
-        return !excludedFiles.has(relative);
+        if (excludedFiles.has(relative)) return false;
+        if (relative.startsWith("assets/artwork/")) return false;
+        if (relative.startsWith("assets/images/omo-campaign/") && relative.endsWith(".png")) return false;
+        if (relative.startsWith("documents/artist-application-package/")) return false;
+        return true;
       },
     },
   );
