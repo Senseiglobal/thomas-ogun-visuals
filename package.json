@@ -4,6 +4,6 @@
   "private": true,
   "description": "Portfolio website for Thomas Ogun Visuals",
   "scripts": {
-    "build": "node -e \"console.log('Static portfolio source is ready for Sites')\""
+    "build": "node tools/build-site.mjs"
   }
 }

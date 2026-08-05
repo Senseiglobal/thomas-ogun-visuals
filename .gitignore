@@ -3,6 +3,7 @@
 .codex/
 work/
 outputs/
+dist/
 
 # Private high-resolution artwork masters and purchased clean files
 .private-artwork-assets/
